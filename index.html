@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[NOMBRE] — Home</title>
+
+  <!-- Hoja de estilos compartida -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="home">
+
+  <!-- =========================================================
+       NAVEGACIÓN LATERAL
+       Reemplazar [NOMBRE], [EMAIL], [INSTAGRAM], [WHATSAPP]
+       con los datos reales del emprendimiento.
+       ========================================================= -->
+  <nav class="nav">
+    <div class="nav__brand">[NOMBRE]</div>
+
+    <ul class="nav__list">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="vision.html">Vision</a></li>
+      <li><a href="education.html">Education &amp; Experience</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="clients.html">Clients</a></li>
+    </ul>
+
+    <div class="nav__contact">
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
+      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+    </div>
+
+    <!-- Botón hamburguesa (sólo visible en mobile) -->
+    <div class="nav__mobile-header">
+      <button class="nav__toggle" aria-label="Abrir menú" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Panel de navegación mobile -->
+  <div class="nav__mobile-panel" id="navPanel">
+    <button class="close" id="navClose">Cerrar</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="education.html">Education &amp; Experience</a>
+    <a href="work.html">Our Work</a>
+    <a href="clients.html">Clients</a>
+    <div class="contact">
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
+      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       HERO — imagen a sangre completa + tagline en la esquina
+       Reemplazar:
+         - el div .hero-placeholder por <img class="hero-img" ...>
+         - [TAGLINE] por la frase real
+       La imagen real debe colocarse en /img/ y referenciarse
+       como src="img/nombre-del-archivo.jpg".
+       ========================================================= -->
+  <section class="hero">
+
+    <!-- Placeholder: borrar este div cuando se sume la imagen real -->
+    <div class="hero-placeholder">[IMAGEN DE FONDO]</div>
+
+    <!-- Imagen real (descomentar y reemplazar el nombre del archivo):
+    <img class="hero-img"
+         src="img/hero.jpg"
+         alt="[Descripción de la imagen de fondo]">
+    -->
+
+    <div class="hero__tagline">[TAGLINE]</div>
+  </section>
+
+  <!-- Script compartido (defer para que corra tras el parseo del DOM) -->
+  <script defer src="js/main.js"></script>
+</body>
+</html>

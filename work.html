@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[NOMBRE] — Our Work</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVEGACIÓN
+       ========================================================= -->
+  <nav class="nav">
+    <div class="nav__brand">[NOMBRE]</div>
+
+    <ul class="nav__list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="vision.html">Vision</a></li>
+      <li><a href="education.html">Education &amp; Experience</a></li>
+      <li><a href="work.html" class="active">Our Work</a></li>
+      <li><a href="clients.html">Clients</a></li>
+    </ul>
+
+    <div class="nav__contact">
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
+      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+    </div>
+
+    <div class="nav__mobile-header">
+      <button class="nav__toggle" aria-label="Abrir menú" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile-panel" id="navPanel">
+    <button class="close" id="navClose">Cerrar</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="education.html">Education &amp; Experience</a>
+    <a href="work.html">Our Work</a>
+    <a href="clients.html">Clients</a>
+    <div class="contact">
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
+      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       CONTENIDO — OUR WORK
+       Cada <figure class="item"> incluye un div placeholder.
+       Para agregar la imagen real, reemplazar el div .item__img
+       por:
+         <img class="item__img" src="img/work-01.jpg" alt="[Descripción]">
+       Mantener la clase .item__img para preservar las proporciones.
+       ========================================================= -->
+  <main class="work fade-in">
+    <div class="work__label">Our Work</div>
+    <hr class="work__rule">
+
+    <div class="grid">
+
+      <!-- Fila 1: grande vertical (7) + mediana horizontal (5) -->
+      <figure class="item item--lg item--vert">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">01.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <figure class="item item--md item--horiz">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">02.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <!-- Fila 2: pequeña con offset + mediana vertical -->
+      <figure class="item item--sm item--horiz offset-1">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">03.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <figure class="item item--md item--vert">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">04.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <!-- Fila 3: mediana horizontal + grande vertical -->
+      <figure class="item item--md item--horiz">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">05.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <figure class="item item--lg item--vert">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">06.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <!-- Fila 4: pequeña + pequeña -->
+      <figure class="item item--sm item--vert">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">07.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <figure class="item item--sm item--horiz">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">08.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <!-- Fila 5: grande horizontal con offset -->
+      <figure class="item item--lg item--horiz offset-1">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">09.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <!-- Fila 6: mediana vertical + mediana horizontal -->
+      <figure class="item item--md item--vert">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">10.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+      <figure class="item item--md item--horiz">
+        <div class="item__img">[FOTOGRAFÍA]</div>
+        <figcaption class="item__caption">
+          <span class="item__num">11.</span>
+          <span class="item__desc">[Título del trabajo — Tipo de evento — Año]</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </main>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,636 @@
+/* =============================================================
+   STYLES.CSS
+   Hoja de estilos compartida por todas las páginas del sitio.
+   Organizada en bloques:
+     1. Tipografía (@font-face)
+     2. Variables y reset
+     3. Navegación lateral (desktop) y mobile
+     4. Página: Home (index)
+     5. Página: Artículo (about + vision)
+     6. Página: Education & Experience
+     7. Página: Our Work
+     8. Página: Clients
+     9. Utilidades (fade-in)
+    10. Media query mobile (≤ 768px)
+   ============================================================= */
+
+
+/* =============================================================
+   1. TIPOGRAFÍA
+   Colocar los archivos TTF en la carpeta /fonts/.
+   Si sólo se cuenta con la variante regular, dejar ambas
+   declaraciones apuntando al mismo archivo hasta conseguir
+   la versión italic.
+   ============================================================= */
+@font-face {
+  font-family: 'LTC Nicolas Cochin';
+  /* Reemplazar con la ruta real al archivo TTF regular */
+  src: url('../fonts/LTCNicolasCochin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LTC Nicolas Cochin';
+  /* Reemplazar con la ruta real al archivo TTF italic */
+  src: url('../fonts/LTCNicolasCochinItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* =============================================================
+   2. VARIABLES, RESET Y BASE
+   Paleta única del sitio (cuatro valores) y base tipográfica.
+   ============================================================= */
+:root {
+  --color-bg:   #FFFFFF;
+  --color-ink:  #0A0A0A;
+  --color-mid:  #555555;
+  --color-rule: #CCCCCC;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'LTC Nicolas Cochin', serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+::selection { background: var(--color-ink); color: var(--color-bg); }
+
+img { display: block; max-width: 100%; }
+
+
+/* =============================================================
+   3. NAVEGACIÓN LATERAL (desktop)
+   Fija a la derecha, 200px de ancho, altura 100vh.
+   ============================================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100vh;
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-rule);
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.nav__brand {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.nav__list {
+  list-style: none;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.nav__list a {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  display: inline-block;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+  position: relative;
+}
+.nav__list a:hover {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.nav__list a.active {
+  color: var(--color-ink);
+  padding-left: 14px;
+}
+.nav__list a.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 1px;
+  background: var(--color-ink);
+}
+
+.nav__contact {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-rule);
+}
+.nav__contact a {
+  font-size: 10px;
+  color: var(--color-mid);
+  letter-spacing: 0.04em;
+}
+
+/* Header y panel mobile: ocultos en desktop, se activan en la media query */
+.nav__mobile-header { display: none; }
+.nav__mobile-panel  { display: none; }
+
+
+/* =============================================================
+   4. PÁGINA HOME (index.html)
+   Sin scroll. Imagen a sangre completa + tagline en esquina.
+   ============================================================= */
+body.home { overflow: hidden; }
+
+.hero {
+  position: relative;
+  width: calc(100% - 200px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Placeholder que muestra "IMAGEN DE FONDO" mientras no hay <img> */
+.hero-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+}
+
+/* Estilo cuando se use <img class="hero-img"> en lugar del placeholder */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__tagline {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 56px);
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  line-height: 1.05;
+  max-width: 70%;
+}
+
+
+/* =============================================================
+   5. PÁGINA DE ARTÍCULO (about.html + vision.html)
+   Layout tipográfico puro con texto en dos columnas.
+   ============================================================= */
+.article {
+  width: calc(100% - 200px);
+  padding: 80px 80px 120px 80px;
+  min-height: 100vh;
+}
+.article__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.article__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 48px;
+}
+.article__title {
+  font-style: italic;
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--color-ink);
+  margin-bottom: 72px;
+  max-width: 90%;
+}
+.article__body {
+  column-count: 2;
+  column-gap: 60px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--color-ink);
+}
+.article__body p {
+  margin-bottom: 20px;
+  break-inside: avoid-column;
+}
+
+
+/* =============================================================
+   6. PÁGINA EDUCATION & EXPERIENCE (education.html)
+   Imagen sticky a la izquierda + índice editorial a la derecha.
+   ============================================================= */
+.edu {
+  width: calc(100% - 200px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.edu__image {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-self: start;
+  overflow: hidden;
+}
+.edu__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+}
+.edu__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edu__content {
+  padding: 80px 60px 120px 60px;
+  min-height: 100vh;
+}
+.edu__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.edu__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 56px;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 16px;
+  padding: 32px 0;
+  border-top: 1px solid var(--color-rule);
+}
+.entry:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+.entry__num {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-mid);
+  padding-top: 8px;
+}
+.entry__title {
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.entry__meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  margin-bottom: 14px;
+}
+.entry__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-mid);
+  max-width: 42em;
+}
+
+
+/* =============================================================
+   7. PÁGINA OUR WORK (work.html)
+   Grilla suiza de 12 columnas, asimétrica.
+   ============================================================= */
+.work {
+  width: calc(100% - 200px);
+  padding: 80px 80px 120px 80px;
+}
+.work__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.work__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  row-gap: 80px;
+}
+
+/* Tamaños de span (variación editorial) */
+.item--lg { grid-column: span 7; }
+.item--md { grid-column: span 5; }
+.item--sm { grid-column: span 4; }
+
+/* Relación de aspecto según orientación */
+.item--vert  .item__img { aspect-ratio: 3 / 4; }
+.item--horiz .item__img { aspect-ratio: 4 / 3; }
+
+.item__img {
+  width: 100%;
+  background-color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  object-fit: cover;
+}
+
+.item__caption {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  align-items: baseline;
+}
+.item__num {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-mid);
+  flex-shrink: 0;
+  min-width: 24px;
+}
+.item__desc {
+  font-size: 12px;
+  color: var(--color-mid);
+  line-height: 1.5;
+}
+
+/* Offsets opcionales para variar la composición fila a fila */
+.offset-1 { grid-column-start: 2; }
+.offset-2 { grid-column-start: 4; }
+.offset-3 { grid-column-start: 6; }
+
+
+/* =============================================================
+   8. PÁGINA CLIENTS (clients.html)
+   Listado tipográfico a todo ancho.
+   ============================================================= */
+.clients {
+  width: calc(100% - 200px);
+  padding: 80px 80px 120px 80px;
+  min-height: 100vh;
+}
+.clients__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.clients__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 0;
+}
+
+.list { list-style: none; }
+
+.list__item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: baseline;
+  column-gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+.list__num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-mid);
+  transition: color 0.15s ease;
+}
+.list__name {
+  font-size: 22px;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+.list__item:hover .list__num,
+.list__item:hover .list__name {
+  color: var(--color-mid);
+}
+
+
+/* =============================================================
+   9. UTILIDADES
+   Fade-in disparado por IntersectionObserver desde main.js.
+   Solo anima opacidad, sin movimiento.
+   ============================================================= */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.fade-in.is-visible { opacity: 1; }
+
+
+/* =============================================================
+   10. RESPONSIVE — breakpoint único en 768px
+   La barra lateral se convierte en un header horizontal con
+   botón hamburguesa; el panel mobile ocupa toda la pantalla.
+   ============================================================= */
+@media (max-width: 768px) {
+
+  /* Navegación: pasa a horizontal arriba */
+  .nav {
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-bottom: 1px solid var(--color-rule);
+    padding: 20px 24px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav__list,
+  .nav__contact { display: none; }
+  .nav__brand {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .nav__mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .nav__toggle {
+    width: 32px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .nav__toggle span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--color-ink);
+  }
+
+  .nav__mobile-panel {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--color-bg);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 24px;
+  }
+  .nav__mobile-panel.open { display: flex; }
+  .nav__mobile-panel a {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink);
+  }
+  .nav__mobile-panel .close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .nav__mobile-panel .contact {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .nav__mobile-panel .contact a {
+    font-size: 11px;
+    color: var(--color-mid);
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  /* Home: hero a ancho completo */
+  .hero {
+    width: 100%;
+    height: calc(100vh - 64px);
+  }
+  .hero__tagline {
+    bottom: 32px;
+    left: 24px;
+    font-size: clamp(28px, 8vw, 44px);
+  }
+
+  /* Artículo: 1 columna */
+  .article {
+    width: 100%;
+    padding: 48px 24px 80px 24px;
+  }
+  .article__body {
+    column-count: 1;
+    font-size: 16px;
+  }
+  .article__title { margin-bottom: 48px; }
+
+  /* Education: imagen arriba (no sticky), texto abajo */
+  .edu {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .edu__image {
+    position: relative;
+    height: 60vh;
+  }
+  .edu__content {
+    padding: 48px 24px 80px 24px;
+  }
+
+  /* Work: grid colapsa a una sola columna */
+  .work {
+    width: 100%;
+    padding: 48px 24px 80px 24px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+  }
+  .item--lg,
+  .item--md,
+  .item--sm,
+  .offset-1,
+  .offset-2,
+  .offset-3 {
+    grid-column: 1 / -1;
+    grid-column-start: auto;
+  }
+
+  /* Clients: misma lista con medidas reducidas */
+  .clients {
+    width: 100%;
+    padding: 48px 24px 80px 24px;
+  }
+  .list__item {
+    grid-template-columns: 36px 1fr;
+    column-gap: 16px;
+    padding: 22px 0;
+  }
+  .list__name { font-size: 18px; }
+}
