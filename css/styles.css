@@ -1,31 +1,29 @@
 /* =============================================================
-   STYLES.CSS
-   Hoja de estilos compartida por todas las páginas del sitio.
-   Organizada en bloques:
-     1. Tipografía (@font-face)
-     2. Variables y reset
-     3. Navegación lateral (desktop) y mobile
-     4. Página: Home (index)
-     5. Página: Artículo (about + vision)
-     6. Página: Education & Experience
-     7. Página: Our Work
-     8. Página: Clients
-     9. Utilidades (fade-in)
-    10. Media query mobile (≤ 768px)
+   STYLES.CSS — Hoja de estilos compartida.
+
+   Bloques:
+     1.  Tipografía (@font-face)
+     2.  Variables y reset
+     3.  Transición de páginas (dissolve)
+     4.  Navegación lateral izquierda (desktop)
+     5.  Logo PNG (blanco / negro según sección)
+     6.  Página: Home (index)
+     7.  Página: Artículo (about + vision)
+     8.  Página: Education & Experience
+     9.  Página: Our Work
+     10. Página: Clients
+     11. Utilidades (fade-in)
+     12. Responsive mobile (≤ 768px)
    ============================================================= */
 
 
 /* =============================================================
    1. TIPOGRAFÍA
-   Colocar los archivos TTF en la carpeta /fonts/.
-   Si sólo se cuenta con la variante regular, dejar ambas
-   declaraciones apuntando al mismo archivo hasta conseguir
-   la versión italic.
    ============================================================= */
 @font-face {
-  font-family: 'LTC Nicolas Cochin';
+  font-family: 'cabin';
   /* Reemplazar con la ruta real al archivo TTF regular */
-  src: url('../fonts/LTCNicolasCochin.ttf') format('truetype');
+  src: url('/fonts/Cabin-VariableFont_wdth/,wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -33,22 +31,23 @@
 @font-face {
   font-family: 'LTC Nicolas Cochin';
   /* Reemplazar con la ruta real al archivo TTF italic */
-  src: url('../fonts/LTCNicolasCochinItalic.ttf') format('truetype');
+  src: url('/fonts/NicolasCochin.ttf') format('truetype');
   font-weight: normal;
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
 }
 
 
 /* =============================================================
    2. VARIABLES, RESET Y BASE
-   Paleta única del sitio (cuatro valores) y base tipográfica.
    ============================================================= */
 :root {
   --color-bg:   #FFFFFF;
   --color-ink:  #0A0A0A;
   --color-mid:  #555555;
   --color-rule: #CCCCCC;
+  --nav-width:  228px;
+  --header-h:   60px;   /* alto del header mobile */
 }
 
 *, *::before, *::after {
@@ -60,7 +59,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'LTC Nicolas Cochin', serif;
+  font-family: 'cabin', serif;
   background: var(--color-bg);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
@@ -77,148 +76,236 @@ img { display: block; max-width: 100%; }
 
 
 /* =============================================================
-   3. NAVEGACIÓN LATERAL (desktop)
-   Fija a la derecha, 200px de ancho, altura 100vh.
+   3. TRANSICIÓN DE PÁGINAS — DISSOLVE
+   El body entra desde opacidad 0 y se desvanece hacia 1.
+   El JS agrega .is-leaving al body antes de navegar a otra
+   página, fundiendo el contenido a 0 antes de cambiar.
+
+   Si JavaScript no carga, la regla `html:not(.js)` mantiene
+   el body visible para no dejar la página en blanco.
+   ============================================================= */
+html:not(.js) body { opacity: 1; }
+
+html.js body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+html.js body.is-loaded { opacity: 1; }
+html.js body.is-leaving { opacity: 0; }
+
+
+/* =============================================================
+   4. NAVEGACIÓN LATERAL IZQUIERDA (desktop)
+   Fondo siempre transparente.
+   - Home: letras blancas.
+   - Resto: letras negras (heredan de body).
    ============================================================= */
 .nav {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 200px;
+  left: 0;
+  width: var(--nav-width);
   height: 100vh;
-  background: var(--color-bg);
-  border-left: 1px solid var(--color-rule);
-  padding: 40px 24px;
+  background: transparent;
+  padding: 16px 28px 32px 28px;
   display: flex;
   flex-direction: column;
   z-index: 100;
 }
 
+/* — Marca / logo — */
 .nav__brand {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-ink);
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--color-rule);
+  margin-bottom: 40px;
 }
+.nav__brand a {
+  display: inline-block;
+}
+.nav__brand a:hover { text-decoration: none; }
 
-.nav__list {
-  list-style: none;
-  padding-top: 32px;
+/* — Contenedor de grupos — */
+.nav__groups {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 28px;
 }
 
-.nav__list a {
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-mid);
-  display: inline-block;
-  transition: color 0.15s ease, padding-left 0.15s ease;
+/* — Cada grupo: '&' como viñeta — */
+.nav__group {
   position: relative;
+  padding-left: 18px;
 }
-.nav__list a:hover {
-  color: var(--color-ink);
-  text-decoration: none;
-}
-.nav__list a.active {
-  color: var(--color-ink);
-  padding-left: 14px;
-}
-.nav__list a.active::before {
+.nav__group::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 50%;
-  width: 8px;
-  height: 1px;
-  background: var(--color-ink);
+  top: 0;
+  font-size: 11px;
+  letter-spacing: 0;
+  opacity: 0.45;
 }
 
+/* Título de grupo (no clickeable — p.ej. "Our Work") */
+.nav__group-title {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  opacity: 0.45;
+  margin-bottom: 12px;
+  pointer-events: none;
+}
+
+/* Lista de links */
+.nav__group-list,
+.nav__group-sublist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.nav__group-list { gap: 10px; }
+.nav__group-sublist { gap: 8px; }
+
+/* ---- LINKS ----
+   Por requerimiento: sólo el ítem activo cambia opacidad / lleva
+   el guión. El resto del menú NO baja de opacidad. */
+.nav__group-list a,
+.nav__group-sublist a {
+  display: inline-block;
+  position: relative;
+  transition: opacity 0.15s ease;
+}
+.nav__group-list a {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+.nav__group-sublist a {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+/* Hover: subrayado breve y sin variar opacidad del resto */
+.nav__group-list a:hover,
+.nav__group-sublist a:hover {
+  text-decoration: underline dotted;
+  content: "x";
+}
+
+/* ---- ESTADO ACTIVO ----
+   Único estado que muestra guion '—' a la izquierda.
+   El guion va con position: absolute para que no mueva el texto. */
+.nav__group-list a::before,
+.nav__group-sublist a::before {
+  content: "—";
+  position: absolute;
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+.nav__group-list a::before  { font-size: 9px; }
+.nav__group-sublist a::before { font-size: 8px; }
+
+.nav__group-list a.active::before,
+.nav__group-sublist a.active::before {
+  opacity: 1;
+}
+
+/* — Datos de contacto al pie — */
 .nav__contact {
   margin-top: auto;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding-top: 24px;
-  border-top: 1px solid var(--color-rule);
+  gap: 4px;
+  padding-left: 18px;
 }
+.nav__contact span,
 .nav__contact a {
   font-size: 10px;
-  color: var(--color-mid);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  line-height: 1.75;
+}
+.nav__contact a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-/* Header y panel mobile: ocultos en desktop, se activan en la media query */
-.nav__mobile-header { display: none; }
-.nav__mobile-panel  { display: none; }
+/* — Header mobile + panel: ocultos en desktop — */
+.mob-header { display: none; }
+.mob-panel  { display: none; }
 
 
 /* =============================================================
-   4. PÁGINA HOME (index.html)
-   Sin scroll. Imagen a sangre completa + tagline en esquina.
+   5. LOGO PNG
+   El HTML siempre incluye AMBAS imágenes (blanca y negra).
+   El CSS oculta una u otra según la página:
+   - body.home (fondo oscuro)  → logo blanco
+   - resto (fondo blanco)      → logo negro
    ============================================================= */
-body.home { overflow: hidden; }
+.logo {
+  height: auto;       /* alto fijo del logo en desktop */
+  width: 180px;
+  display: block;
+}
+
+/* Por defecto: mostrar el logo negro, ocultar el blanco */
+.logo--white { display: none; }
+.logo--black { display: block; }
+
+/* En home: invertir */
+body.home .logo--white { display: block; }
+body.home .logo--black { display: none; }
+
+
+/* =============================================================
+   6. PÁGINA HOME (index.html)
+   Hero a sangre completa. Sin tagline (se eliminó).
+   ============================================================= */
+body.home {
+  overflow: hidden;
+  background: #000;   /* fondo oscuro mientras carga la imagen */
+}
+body.home .nav { color: #FFFFFF; }
+body.home .nav a { color: #FFFFFF; }
 
 .hero {
   position: relative;
-  width: calc(100% - 200px);
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
-
-/* Placeholder que muestra "IMAGEN DE FONDO" mientras no hay <img> */
 .hero-placeholder {
   width: 100%;
   height: 100%;
-  background-color: #CCCCCC;
+  background-color: #555555;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-mid);
+  color: var(--color-rule);
 }
-
-/* Estilo cuando se use <img class="hero-img"> en lugar del placeholder */
 .hero-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.hero__tagline {
-  position: absolute;
-  bottom: 48px;
-  left: 48px;
-  font-style: italic;
-  font-size: clamp(32px, 4vw, 56px);
-  letter-spacing: -0.01em;
-  color: #FFFFFF;
-  line-height: 1.05;
-  max-width: 70%;
-}
-
 
 /* =============================================================
-   5. PÁGINA DE ARTÍCULO (about.html + vision.html)
-   Layout tipográfico puro con texto en dos columnas.
+   7. PÁGINA ARTÍCULO (about.html + vision.html)
    ============================================================= */
 .article {
-  width: calc(100% - 200px);
+  margin-left: var(--nav-width);
   padding: 80px 80px 120px 80px;
   min-height: 100vh;
 }
 .article__label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-size:18px;
+  font-weight: bold;
+  letter-spacing: 0.5em;
   color: var(--color-mid);
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 .article__rule {
   border: none;
@@ -226,8 +313,8 @@ body.home { overflow: hidden; }
   margin-bottom: 48px;
 }
 .article__title {
-  font-style: italic;
-  font-size: clamp(40px, 6vw, 72px);
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-size: clamp(24px, 3vw, 40px);
   letter-spacing: -0.01em;
   line-height: 1.05;
   color: var(--color-ink);
@@ -236,9 +323,10 @@ body.home { overflow: hidden; }
 }
 .article__body {
   column-count: 2;
-  column-gap: 60px;
+  column-gap: 80px;
   font-size: 17px;
-  line-height: 1.75;
+  line-height: 1.5;
+  max-width: 900px;
   color: var(--color-ink);
 }
 .article__body p {
@@ -248,15 +336,13 @@ body.home { overflow: hidden; }
 
 
 /* =============================================================
-   6. PÁGINA EDUCATION & EXPERIENCE (education.html)
-   Imagen sticky a la izquierda + índice editorial a la derecha.
+   8. PÁGINA EDUCATION & EXPERIENCE
    ============================================================= */
 .edu {
-  width: calc(100% - 200px);
+  margin-left: var(--nav-width);
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
 .edu__image {
   position: sticky;
   top: 0;
@@ -273,7 +359,6 @@ body.home { overflow: hidden; }
   justify-content: center;
   font-size: 11px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--color-mid);
 }
 .edu__image img {
@@ -281,7 +366,6 @@ body.home { overflow: hidden; }
   height: 100%;
   object-fit: cover;
 }
-
 .edu__content {
   padding: 80px 60px 120px 60px;
   min-height: 100vh;
@@ -289,7 +373,6 @@ body.home { overflow: hidden; }
 .edu__label {
   font-size: 10px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--color-mid);
   padding-bottom: 20px;
 }
@@ -298,7 +381,6 @@ body.home { overflow: hidden; }
   border-top: 1px solid var(--color-rule);
   margin-bottom: 56px;
 }
-
 .entry {
   display: grid;
   grid-template-columns: 48px 1fr;
@@ -306,10 +388,7 @@ body.home { overflow: hidden; }
   padding: 32px 0;
   border-top: 1px solid var(--color-rule);
 }
-.entry:first-of-type {
-  border-top: none;
-  padding-top: 0;
-}
+.entry:first-of-type { border-top: none; padding-top: 0; }
 .entry__num {
   font-size: 10px;
   letter-spacing: 0.12em;
@@ -327,7 +406,6 @@ body.home { overflow: hidden; }
 .entry__meta {
   font-size: 11px;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--color-mid);
   margin-bottom: 14px;
 }
@@ -340,17 +418,15 @@ body.home { overflow: hidden; }
 
 
 /* =============================================================
-   7. PÁGINA OUR WORK (work.html)
-   Grilla suiza de 12 columnas, asimétrica.
+   9. PÁGINA OUR WORK (work.html)
    ============================================================= */
 .work {
-  width: calc(100% - 200px);
-  padding: 80px 80px 120px 80px;
+  margin-left: var(--nav-width);
+  padding: 80px 80px 0 80px;
 }
 .work__label {
   font-size: 10px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--color-mid);
   padding-bottom: 20px;
 }
@@ -360,22 +436,38 @@ body.home { overflow: hidden; }
   margin-bottom: 80px;
 }
 
+.project { margin-bottom: 120px; scroll-margin-top: 40px; }
+.project__header { margin-bottom: 48px; }
+.project__title {
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+.project__meta {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--color-mid);
+}
+.project__divider {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: 0 0 80px 0;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 24px;
   row-gap: 80px;
 }
-
-/* Tamaños de span (variación editorial) */
 .item--lg { grid-column: span 7; }
 .item--md { grid-column: span 5; }
 .item--sm { grid-column: span 4; }
-
-/* Relación de aspecto según orientación */
 .item--vert  .item__img { aspect-ratio: 3 / 4; }
 .item--horiz .item__img { aspect-ratio: 4 / 3; }
-
 .item__img {
   width: 100%;
   background-color: #CCCCCC;
@@ -384,11 +476,9 @@ body.home { overflow: hidden; }
   justify-content: center;
   font-size: 11px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--color-mid);
   object-fit: cover;
 }
-
 .item__caption {
   display: flex;
   gap: 16px;
@@ -407,26 +497,22 @@ body.home { overflow: hidden; }
   color: var(--color-mid);
   line-height: 1.5;
 }
-
-/* Offsets opcionales para variar la composición fila a fila */
 .offset-1 { grid-column-start: 2; }
 .offset-2 { grid-column-start: 4; }
 .offset-3 { grid-column-start: 6; }
 
 
 /* =============================================================
-   8. PÁGINA CLIENTS (clients.html)
-   Listado tipográfico a todo ancho.
+   10. PÁGINA CLIENTS
    ============================================================= */
 .clients {
-  width: calc(100% - 200px);
+  margin-left: var(--nav-width);
   padding: 80px 80px 120px 80px;
   min-height: 100vh;
 }
 .clients__label {
   font-size: 10px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--color-mid);
   padding-bottom: 20px;
 }
@@ -435,9 +521,7 @@ body.home { overflow: hidden; }
   border-top: 1px solid var(--color-rule);
   margin-bottom: 0;
 }
-
 .list { list-style: none; }
-
 .list__item {
   display: grid;
   grid-template-columns: 48px 1fr;
@@ -465,9 +549,7 @@ body.home { overflow: hidden; }
 
 
 /* =============================================================
-   9. UTILIDADES
-   Fade-in disparado por IntersectionObserver desde main.js.
-   Solo anima opacidad, sin movimiento.
+   11. UTILIDADES
    ============================================================= */
 .fade-in {
   opacity: 0;
@@ -477,160 +559,271 @@ body.home { overflow: hidden; }
 
 
 /* =============================================================
-   10. RESPONSIVE — breakpoint único en 768px
-   La barra lateral se convierte en un header horizontal con
-   botón hamburguesa; el panel mobile ocupa toda la pantalla.
+   12. RESPONSIVE — breakpoint 768px
+   En mobile:
+   - El menú lateral desaparece.
+   - Aparece un header fijo en la parte superior con el logo a
+     la izquierda y un botón "Menu" a la derecha.
+   - En home el header es transparente con texto blanco;
+     en el resto es blanco con texto negro.
+   - El panel mobile cubre la pantalla con fondo blanco y
+     letras negras siempre.
+   - El hero ocupa toda la pantalla detrás del header.
    ============================================================= */
 @media (max-width: 768px) {
 
-  /* Navegación: pasa a horizontal arriba */
-  .nav {
-    width: 100%;
-    height: auto;
-    border-left: none;
-    border-bottom: 1px solid var(--color-rule);
-    padding: 20px 24px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav__list,
-  .nav__contact { display: none; }
-  .nav__brand {
-    border-bottom: none;
-    padding-bottom: 0;
+  :root {
+    --nav-width: 0px;
   }
 
-  .nav__mobile-header {
+  /* En mobile, el contenido fluye normalmente sin overflow */
+  body { overflow-x: hidden; }
+  body.home { overflow: visible; }
+
+  /* La barra lateral desktop se oculta por completo */
+  .nav { display: none; }
+
+  /* ---- Header mobile fijo arriba ---- */
+  .mob-header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-h);
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 90;
+    background: transparent;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  /* Por defecto (páginas internas): fondo blanco, texto negro */
+  body:not(.home) .mob-header {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  /* Home: header transparente sobre la imagen, texto blanco */
+  body.home .mob-header {
+    background: transparent;
+    color: #FFFFFF;
+  }
+
+  .mob-header__brand {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
   }
-  .nav__toggle {
-    width: 32px;
-    height: 20px;
+  .mob-header__brand a { display: block; }
+  .mob-header__brand a:hover { text-decoration: none; }
+
+  /* Logo en mobile más chico */
+  .mob-header .logo { height: 20px; }
+
+  /* Lógica blanco / negro idéntica al desktop */
+  .mob-header .logo--white { display: none; }
+  .mob-header .logo--black { display: block; }
+  body.home .mob-header .logo--white { display: block; }
+  body.home .mob-header .logo--black { display: none; }
+
+  /* Botón "Menu" — sólo texto */
+  .mob-header__toggle {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .nav__toggle span {
-    display: block;
-    width: 100%;
-    height: 1px;
-    background: var(--color-ink);
+    color: inherit;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    padding: 4px 0;
   }
 
-  .nav__mobile-panel {
-    display: none;
+  /* ---- Panel mobile a pantalla completa ---- */
+  .mob-panel {
+    display: flex;
     position: fixed;
     inset: 0;
     background: var(--color-bg);
+    color: var(--color-ink);
     z-index: 200;
     flex-direction: column;
+    padding: 0 32px 32px 32px;
+    /* Oculto por defecto: opacidad 0 + pointer-events ninguno */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+  }
+  .mob-panel.open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease, visibility 0s linear 0s;
+  }
+
+  /* Header dentro del panel: logo + botón Cerrar */
+  .mob-panel__header {
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 32px;
-    padding: 24px;
+    justify-content: space-between;
+    height: var(--header-h);
+    padding: 0;
+    margin: 0 -32px 0 -32px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--color-rule);
   }
-  .nav__mobile-panel.open { display: flex; }
-  .nav__mobile-panel a {
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-ink);
-  }
-  .nav__mobile-panel .close {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    background: none;
+  .mob-panel__header .logo--white { display: none; }
+  .mob-panel__header .logo--black { display: block; }
+  .mob-panel__close {
+    background: transparent;
     border: none;
     cursor: pointer;
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--color-ink);
+    padding: 4px 0;
   }
-  .nav__mobile-panel .contact {
-    margin-top: 24px;
+
+  /* Lista de navegación mobile */
+  .mob-panel__nav {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 32px 0;
   }
-  .nav__mobile-panel .contact a {
+  .mob-group {
+    position: relative;
+    padding-left: 22px;
+  }
+  .mob-group::before {
+    content: "&";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 13px;
+    opacity: 0.45;
+  }
+  .mob-group__title {
     font-size: 11px;
-    color: var(--color-mid);
+    letter-spacing: 0.18em;
+    opacity: 0.45;
+    margin-bottom: 12px;
+  }
+  .mob-group__list,
+  .mob-group__sublist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .mob-group__list { gap: 14px; }
+  .mob-group__sublist { gap: 10px; }
+
+  .mob-group__list a {
+    font-size: 18px;
     letter-spacing: 0.04em;
+    color: var(--color-ink);
+    text-transform: none;
+    font-style: italic;
+  }
+  .mob-group__sublist a {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--color-ink);
     text-transform: none;
   }
 
-  /* Home: hero a ancho completo */
-  .hero {
-    width: 100%;
-    height: calc(100vh - 64px);
+  /* Datos de contacto al pie del panel */
+  .mob-panel__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-rule);
   }
-  .hero__tagline {
-    bottom: 32px;
-    left: 24px;
-    font-size: clamp(28px, 8vw, 44px);
+  .mob-panel__contact span,
+  .mob-panel__contact a {
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    line-height: 1.55;
+    color: var(--color-mid);
   }
 
-  /* Artículo: 1 columna */
-  .article {
+  /* ---- Páginas individuales (compensar header mobile) ---- */
+
+  /* Home: el hero pasa detrás del header transparente */
+  .hero {
     width: 100%;
-    padding: 48px 24px 80px 24px;
+    height: 100vh;
+  }
+
+  /* Artículo */
+  .article {
+    margin-left: 0;
+    padding: calc(var(--header-h) + 32px) 24px 64px 24px;
   }
   .article__body {
     column-count: 1;
     font-size: 16px;
   }
-  .article__title { margin-bottom: 48px; }
+  .article__title {
+    margin-bottom: 40px;
+    font-size: clamp(36px, 9vw, 56px);
+  }
 
-  /* Education: imagen arriba (no sticky), texto abajo */
+  /* Education: imagen arriba (no sticky), índice debajo */
   .edu {
-    width: 100%;
+    margin-left: 0;
     grid-template-columns: 1fr;
+    padding-top: var(--header-h);
   }
   .edu__image {
     position: relative;
-    height: 60vh;
+    height: 55vh;
   }
   .edu__content {
-    padding: 48px 24px 80px 24px;
+    padding: 40px 24px 64px 24px;
   }
+  .entry {
+    grid-template-columns: 36px 1fr;
+    column-gap: 12px;
+    padding: 28px 0;
+  }
+  .entry__title { font-size: 19px; }
+  .entry__desc  { font-size: 14px; }
 
-  /* Work: grid colapsa a una sola columna */
+  /* Work: galería a una sola columna */
   .work {
-    width: 100%;
-    padding: 48px 24px 80px 24px;
+    margin-left: 0;
+    padding: calc(var(--header-h) + 32px) 24px 0 24px;
   }
   .grid {
     grid-template-columns: 1fr;
     row-gap: 48px;
   }
-  .item--lg,
-  .item--md,
-  .item--sm,
-  .offset-1,
-  .offset-2,
-  .offset-3 {
+  .item--lg, .item--md, .item--sm,
+  .offset-1, .offset-2, .offset-3 {
     grid-column: 1 / -1;
     grid-column-start: auto;
   }
+  .project {
+    margin-bottom: 72px;
+    scroll-margin-top: calc(var(--header-h) + 16px);
+  }
+  .project__header { margin-bottom: 32px; }
+  .project__divider { margin-bottom: 56px; }
 
-  /* Clients: misma lista con medidas reducidas */
+  /* Clients */
   .clients {
-    width: 100%;
-    padding: 48px 24px 80px 24px;
+    margin-left: 0;
+    padding: calc(var(--header-h) + 32px) 24px 64px 24px;
   }
   .list__item {
-    grid-template-columns: 36px 1fr;
-    column-gap: 16px;
+    grid-template-columns: 32px 1fr;
+    column-gap: 12px;
     padding: 22px 0;
   }
-  .list__name { font-size: 18px; }
+  .list__name { font-size: 17px; }
 }

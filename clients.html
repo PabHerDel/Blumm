@@ -4,59 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[NOMBRE] — Clients</title>
-
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
   <!-- =========================================================
-       NAVEGACIÓN
+       NAVEGACIÓN LATERAL — DESKTOP
        ========================================================= -->
   <nav class="nav">
-    <div class="nav__brand">[NOMBRE]</div>
+    <div class="nav__brand">
+      <a href="index.html" aria-label="Inicio — [NOMBRE]">
+        <img class="logo logo--white" src="/img/imagotipo_white.png" alt="Blumm Studio">
+        <img class="logo logo--black" src="/img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
+    </div>
 
-    <ul class="nav__list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="vision.html">Vision</a></li>
-      <li><a href="education.html">Education &amp; Experience</a></li>
-      <li><a href="work.html">Our Work</a></li>
-      <li><a href="clients.html" class="active">Clients</a></li>
-    </ul>
+    <div class="nav__groups">
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__group">
+        <div class="nav__group-title">Our Work</div>
+        <ul class="nav__group-sublist">
+          <!-- Reemplazar [Proyecto N] con los nombres reales -->
+          <li><a href="work.html#project-1">[Proyecto 1]</a></li>
+          <li><a href="work.html#project-2">[Proyecto 2]</a></li>
+          <li><a href="work.html#project-3">[Proyecto 3]</a></li>
+          <li><a href="work.html#project-4">[Proyecto 4]</a></li>
+          <li><a href="work.html#project-5">[Proyecto 5]</a></li>
+        </ul>
+      </div>
+
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="clients.html" class="active">Clients</a></li>
+        </ul>
+      </div>
+    </div>
 
     <div class="nav__contact">
       <a href="mailto:[EMAIL]">[EMAIL]</a>
-      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
-      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
-    </div>
-
-    <div class="nav__mobile-header">
-      <button class="nav__toggle" aria-label="Abrir menú" id="navToggle">
-        <span></span><span></span><span></span>
-      </button>
+      <span>@[INSTAGRAM]</span>
+      <span>[WHATSAPP]</span>
+      <span>[CIUDAD, PAÍS]</span>
     </div>
   </nav>
 
-  <div class="nav__mobile-panel" id="navPanel">
-    <button class="close" id="navClose">Cerrar</button>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="education.html">Education &amp; Experience</a>
-    <a href="work.html">Our Work</a>
-    <a href="clients.html">Clients</a>
-    <div class="contact">
-      <a href="mailto:[EMAIL]">[EMAIL]</a>
-      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
-      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+  <!-- =========================================================
+       HEADER MOBILE
+       ========================================================= -->
+  <header class="mob-header">
+    <div class="mob-header__brand">
+      <a href="index.html" aria-label="Inicio — [NOMBRE]">
+        <img class="logo logo--white" src="img/logo-white.png" alt="[NOMBRE]">
+        <img class="logo logo--black" src="img/logo-black.png" alt="[NOMBRE]">
+      </a>
     </div>
-  </div>
+    <button class="mob-header__toggle" id="mobToggle" aria-label="Abrir menú">Menu</button>
+  </header>
+
+  <!-- =========================================================
+       PANEL MOBILE A PANTALLA COMPLETA
+       ========================================================= -->
+  <aside class="mob-panel" id="mobPanel">
+    <div class="mob-panel__header">
+      <a href="index.html" aria-label="Inicio">
+        <img class="logo logo--black" src="img/logo-black.png" alt="[NOMBRE]">
+      </a>
+      <button class="mob-panel__close" id="mobClose" aria-label="Cerrar menú">Cerrar</button>
+    </div>
+
+    <nav class="mob-panel__nav">
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <div class="mob-group__title">Our Work</div>
+        <ul class="mob-group__sublist">
+          <li><a href="work.html#project-1">[Proyecto 1]</a></li>
+          <li><a href="work.html#project-2">[Proyecto 2]</a></li>
+          <li><a href="work.html#project-3">[Proyecto 3]</a></li>
+          <li><a href="work.html#project-4">[Proyecto 4]</a></li>
+          <li><a href="work.html#project-5">[Proyecto 5]</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="clients.html">Clients</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="mob-panel__contact">
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <span>@[INSTAGRAM]</span>
+      <span>[WHATSAPP]</span>
+      <span>[CIUDAD, PAÍS]</span>
+    </div>
+  </aside>
 
   <!-- =========================================================
        CONTENIDO — CLIENTS
-       Listado a todo ancho. Reemplazar [NOMBRE DE CLIENTE] con
-       los nombres reales. Agregar o quitar ítems según haga falta.
+       Reemplazar [NOMBRE DE CLIENTE] con los nombres reales.
        ========================================================= -->
   <main class="clients fade-in">
     <div class="clients__label">Clients</div>

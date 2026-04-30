@@ -1,0 +1,662 @@
+/* =============================================================
+   STYLES.CSS
+   Hoja de estilos compartida por todas las páginas del sitio.
+   Bloques:
+     1. Tipografía (@font-face)
+     2. Variables y reset
+     3. Navegación lateral izquierda (desktop) y mobile
+     4. Página: Home (index)
+     5. Página: Artículo (about + vision)
+     6. Página: Education & Experience
+     7. Página: Our Work (galería por proyecto)
+     8. Página: Clients
+     9. Utilidades (fade-in)
+    10. Media query mobile (≤ 768px)
+   ============================================================= */
+
+
+/* =============================================================
+   1. TIPOGRAFÍA
+   ============================================================= */
+@font-face {
+  font-family: 'LTC Nicolas Cochin';
+  /* Reemplazar con la ruta real al archivo TTF regular */
+  src: url('../fonts/Cabin-VariableFont_wdth/,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LTC Nicolas Cochin';
+  /* Reemplazar con la ruta real al archivo TTF italic */
+  src: url('../fonts/LTC/ Nicolas/ Cochin/ W01/ Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* =============================================================
+   2. VARIABLES, RESET Y BASE
+   ============================================================= */
+:root {
+  --color-bg:   #FFFFFF;
+  --color-ink:  #0A0A0A;
+  --color-mid:  #555555;
+  --color-rule: #CCCCCC;
+  --nav-width:  220px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'LTC Nicolas Cochin', serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+::selection { background: var(--color-ink); color: var(--color-bg); }
+
+img { display: block; max-width: 100%; }
+
+
+/* =============================================================
+   3. NAVEGACIÓN LATERAL IZQUIERDA (desktop)
+
+   Fondo transparente siempre.
+   - Home: letras blancas (body.home).
+   - Resto: letras negras (hereda de body).
+   ============================================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--nav-width);
+  height: 100vh;
+  background: transparent;
+  padding: 40px 28px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* — Marca / nombre — */
+.nav__brand {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  margin-bottom: 40px;
+}
+.nav__brand a { display: inline-block; }
+.nav__brand a:hover { text-decoration: none; }
+
+/* — Contenedor de grupos — */
+.nav__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* — Cada grupo: & como viñeta — */
+.nav__group {
+  position: relative;
+  padding-left: 18px;
+}
+.nav__group::before {
+  content: "&";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 11px;
+  letter-spacing: 0;
+  opacity: 0.45;
+}
+
+/* Título de grupo (no clickeable — p.ej. "Our Work") */
+.nav__group-title {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin-bottom: 12px;
+  pointer-events: none;
+}
+
+/* Lista de links dentro de un grupo */
+.nav__group-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Links individuales */
+.nav__group-list a {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  opacity: 0.55;
+  display: inline-block;
+  position: relative;
+  transition: opacity 0.15s ease;
+}
+.nav__group-list a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* ---- Guion izquierdo (hover + active) ----
+   Posicionado fuera del flujo con position: absolute,
+   así el texto no se mueve. */
+.nav__group-list a::before {
+  content: "—";
+  position: absolute;
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+.nav__group-list a:hover::before { opacity: 1; }
+.nav__group-list a.active { opacity: 1; }
+.nav__group-list a.active::before { opacity: 1; }
+
+/* Sub-links (proyectos bajo "Our Work") */
+.nav__group-sublist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nav__group-sublist a {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  opacity: 0.45;
+  display: inline-block;
+  position: relative;
+  transition: opacity 0.15s ease;
+}
+.nav__group-sublist a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+.nav__group-sublist a::before {
+  content: "—";
+  position: absolute;
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+}
+.nav__group-sublist a:hover::before { opacity: 1; }
+.nav__group-sublist a.active { opacity: 1; }
+.nav__group-sublist a.active::before { opacity: 1; }
+
+/* — Contacto al pie — */
+.nav__contact {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 18px;
+}
+.nav__contact span,
+.nav__contact a {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+  opacity: 0.45;
+}
+.nav__contact a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ==================================
+   COLORES DEL MENÚ: HOME vs RESTO
+   ================================== */
+/* Home: letras blancas */
+body.home .nav { color: #FFFFFF; }
+body.home .nav a { color: #FFFFFF; }
+body.home .nav__group::before { color: #FFFFFF; }
+body.home .nav__group-title { color: #FFFFFF; }
+body.home .nav__contact span,
+body.home .nav__contact a { color: #FFFFFF; }
+
+/* Mobile: elementos ocultos en desktop */
+.nav__mobile-header { display: none; }
+.nav__mobile-panel  { display: none; }
+
+
+/* =============================================================
+   4. PÁGINA HOME (index.html)
+   Hero a sangre completa (todo el ancho).
+   ============================================================= */
+body.home { overflow: hidden; }
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #555555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-rule);
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero__tagline {
+  position: absolute;
+  bottom: 48px;
+  left: calc(var(--nav-width) + 48px);
+  font-style: italic;
+  font-size: clamp(32px, 4vw, 56px);
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  line-height: 1.05;
+  max-width: 55%;
+}
+
+
+/* =============================================================
+   5. PÁGINA ARTÍCULO (about.html + vision.html)
+   ============================================================= */
+.article {
+  margin-left: var(--nav-width);
+  padding: 80px 80px 120px 80px;
+  min-height: 100vh;
+}
+.article__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.article__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 48px;
+}
+.article__title {
+  font-style: italic;
+  font-size: clamp(40px, 6vw, 72px);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: var(--color-ink);
+  margin-bottom: 72px;
+  max-width: 90%;
+}
+.article__body {
+  column-count: 2;
+  column-gap: 60px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--color-ink);
+}
+.article__body p {
+  margin-bottom: 20px;
+  break-inside: avoid-column;
+}
+
+
+/* =============================================================
+   6. PÁGINA EDUCATION & EXPERIENCE
+   ============================================================= */
+.edu {
+  margin-left: var(--nav-width);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.edu__image {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-self: start;
+  overflow: hidden;
+}
+.edu__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+}
+.edu__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.edu__content {
+  padding: 80px 60px 120px 60px;
+  min-height: 100vh;
+}
+.edu__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.edu__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 56px;
+}
+.entry {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 16px;
+  padding: 32px 0;
+  border-top: 1px solid var(--color-rule);
+}
+.entry:first-of-type { border-top: none; padding-top: 0; }
+.entry__num {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-mid);
+  padding-top: 8px;
+}
+.entry__title {
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.entry__meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  margin-bottom: 14px;
+}
+.entry__desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-mid);
+  max-width: 42em;
+}
+
+
+/* =============================================================
+   7. PÁGINA OUR WORK (work.html)
+   Galería continua con secciones por proyecto (anclas).
+   ============================================================= */
+.work {
+  margin-left: var(--nav-width);
+  padding: 80px 80px 0 80px;
+}
+.work__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.work__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 80px;
+}
+
+.project { margin-bottom: 120px; }
+.project__header { margin-bottom: 48px; }
+.project__title {
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+.project__meta {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+}
+.project__divider {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: 0 0 80px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  row-gap: 80px;
+}
+.item--lg { grid-column: span 7; }
+.item--md { grid-column: span 5; }
+.item--sm { grid-column: span 4; }
+.item--vert  .item__img { aspect-ratio: 3 / 4; }
+.item--horiz .item__img { aspect-ratio: 4 / 3; }
+.item__img {
+  width: 100%;
+  background-color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  object-fit: cover;
+}
+.item__caption {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  align-items: baseline;
+}
+.item__num {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-mid);
+  flex-shrink: 0;
+  min-width: 24px;
+}
+.item__desc {
+  font-size: 12px;
+  color: var(--color-mid);
+  line-height: 1.5;
+}
+.offset-1 { grid-column-start: 2; }
+.offset-2 { grid-column-start: 4; }
+.offset-3 { grid-column-start: 6; }
+
+
+/* =============================================================
+   8. PÁGINA CLIENTS
+   ============================================================= */
+.clients {
+  margin-left: var(--nav-width);
+  padding: 80px 80px 120px 80px;
+  min-height: 100vh;
+}
+.clients__label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mid);
+  padding-bottom: 20px;
+}
+.clients__rule {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: 0;
+}
+.list { list-style: none; }
+.list__item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: baseline;
+  column-gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+.list__num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-mid);
+  transition: color 0.15s ease;
+}
+.list__name {
+  font-size: 22px;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
+}
+.list__item:hover .list__num,
+.list__item:hover .list__name {
+  color: var(--color-mid);
+}
+
+
+/* =============================================================
+   9. UTILIDADES
+   ============================================================= */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.fade-in.is-visible { opacity: 1; }
+
+
+/* =============================================================
+   10. RESPONSIVE — breakpoint 768px
+   ============================================================= */
+@media (max-width: 768px) {
+
+  :root { --nav-width: 0px; }
+
+  .nav {
+    width: 100%;
+    height: auto;
+    padding: 20px 24px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0;
+  }
+  .nav__groups,
+  .nav__contact { display: none; }
+  .nav__brand { margin-bottom: 0; }
+
+  .nav__mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .nav__toggle {
+    width: 32px; height: 20px;
+    background: transparent; border: none; cursor: pointer;
+    padding: 0; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .nav__toggle span {
+    display: block; width: 100%; height: 1px;
+    background: currentColor;
+  }
+
+  .nav__mobile-panel {
+    display: none; position: fixed; inset: 0;
+    background: var(--color-bg); z-index: 200;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 24px; padding: 24px;
+  }
+  .nav__mobile-panel.open { display: flex; }
+  .nav__mobile-panel a {
+    font-size: 20px; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--color-ink);
+  }
+  .nav__mobile-panel .mob-title {
+    font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.18em; color: var(--color-mid);
+    pointer-events: none; margin-top: 12px;
+  }
+  .nav__mobile-panel .mob-sub a { font-size: 16px; }
+  .nav__mobile-panel .close {
+    position: absolute; top: 24px; right: 24px;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    background: none; border: none; cursor: pointer; color: var(--color-ink);
+  }
+  .nav__mobile-panel .contact {
+    margin-top: 24px; display: flex; flex-direction: column;
+    gap: 4px; align-items: center;
+  }
+  .nav__mobile-panel .contact span,
+  .nav__mobile-panel .contact a {
+    font-size: 10px; color: var(--color-mid);
+    letter-spacing: 0.04em; text-transform: none;
+  }
+
+  /* Compensar header fijo en páginas internas */
+  body:not(.home) .article,
+  body:not(.home) .edu,
+  body:not(.home) .work,
+  body:not(.home) .clients { padding-top: 100px; }
+
+  .hero { width: 100%; height: 100vh; }
+  .hero__tagline {
+    bottom: 32px; left: 24px;
+    font-size: clamp(28px, 8vw, 44px);
+    max-width: 80%;
+  }
+
+  .article { padding: 48px 24px 80px 24px; }
+  .article__body { column-count: 1; font-size: 16px; }
+  .article__title { margin-bottom: 48px; }
+
+  .edu { grid-template-columns: 1fr; }
+  .edu__image { position: relative; height: 60vh; }
+  .edu__content { padding: 48px 24px 80px 24px; }
+
+  .work { padding: 48px 24px 0 24px; }
+  .grid { grid-template-columns: 1fr; row-gap: 48px; }
+  .item--lg, .item--md, .item--sm,
+  .offset-1, .offset-2, .offset-3 {
+    grid-column: 1 / -1; grid-column-start: auto;
+  }
+  .project { margin-bottom: 80px; }
+
+  .clients { padding: 48px 24px 80px 24px; }
+  .list__item { grid-template-columns: 36px 1fr; column-gap: 16px; padding: 22px 0; }
+  .list__name { font-size: 18px; }
+}

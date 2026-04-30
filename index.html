@@ -4,83 +4,172 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[NOMBRE] — Home</title>
-
-  <!-- Hoja de estilos compartida -->
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
+<!-- body.home: activa logo blanco + colores blancos del menú -->
 <body class="home">
 
   <!-- =========================================================
-       NAVEGACIÓN LATERAL
-       Reemplazar [NOMBRE], [EMAIL], [INSTAGRAM], [WHATSAPP]
-       con los datos reales del emprendimiento.
+       NAVEGACIÓN LATERAL — DESKTOP
+       Reemplazar [NOMBRE], [EMAIL], [INSTAGRAM], [WHATSAPP],
+       [CIUDAD, PAÍS] con los datos reales.
+
+       LOGO: dos archivos PNG en /img/
+         - img/logo-white.png   (para fondos oscuros: home)
+         - img/logo-black.png   (para fondos blancos: resto)
+       Ambas versiones se incluyen siempre; el CSS muestra/oculta
+       según la página. Reemplazar el alt con el nombre real.
        ========================================================= -->
   <nav class="nav">
-    <div class="nav__brand">[NOMBRE]</div>
-
-    <ul class="nav__list">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="vision.html">Vision</a></li>
-      <li><a href="education.html">Education &amp; Experience</a></li>
-      <li><a href="work.html">Our Work</a></li>
-      <li><a href="clients.html">Clients</a></li>
-    </ul>
-
-    <div class="nav__contact">
-      <a href="mailto:[EMAIL]">[EMAIL]</a>
-      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
-      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+    <div class="nav__brand">
+      <a href="index.html" aria-label="Inicio — [NOMBRE]">
+        <img class="logo logo--white" src="/img/imagotipo_white.png" alt="Blumm Studio">
+        <img class="logo logo--black" src="/img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
     </div>
 
-    <!-- Botón hamburguesa (sólo visible en mobile) -->
-    <div class="nav__mobile-header">
-      <button class="nav__toggle" aria-label="Abrir menú" id="navToggle">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="nav__groups">
+
+      <!-- Grupo 1: About / Vision / Education -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 2: Our Work (título no clickeable) + 5 proyectos -->
+      <div class="nav__group">
+        <div class="nav__group-title">Our Work</div>
+        <ul class="nav__group-sublist">
+          <!-- Reemplazar [Proyecto N] con los nombres reales -->
+          <li><a href="work.html#project-1">[Proyecto 1]</a></li>
+          <li><a href="work.html#project-2">[Proyecto 2]</a></li>
+          <li><a href="work.html#project-3">[Proyecto 3]</a></li>
+          <li><a href="work.html#project-4">[Proyecto 4]</a></li>
+          <li><a href="work.html#project-5">[Proyecto 5]</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 3: Clients -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="clients.html">Clients</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Datos de contacto al pie del menú.
+         Único enlace: el email. El resto en texto plano. -->
+    <div class="nav__contact">
+      <a href="mailto:[EMAIL]">blummflowerst@gmail.com</a>      
+      <span>11 5497 0878</span>      
+      <span> </span>
+      <span> </span>
+
+      <span>Instagram ::</span>
+      <span>     
+      <span>@blumm_studio</span>
+      <span>@blummflowerco</span>
+      <span>@casacavia</span>
+      </span>
+
+      <span>personal ::</span>
+      <span>       
+      <span>@cgassiebayle</span>
+      <span>@mgassiebayle</span>
+      </span>
     </div>
   </nav>
 
-  <!-- Panel de navegación mobile -->
-  <div class="nav__mobile-panel" id="navPanel">
-    <button class="close" id="navClose">Cerrar</button>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="vision.html">Vision</a>
-    <a href="education.html">Education &amp; Experience</a>
-    <a href="work.html">Our Work</a>
-    <a href="clients.html">Clients</a>
-    <div class="contact">
-      <a href="mailto:[EMAIL]">[EMAIL]</a>
-      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">[INSTAGRAM]</a>
-      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+  <!-- =========================================================
+       HEADER MOBILE — Visible sólo en ≤ 768px
+       Logo a la izquierda + botón "Menu" a la derecha.
+       ========================================================= -->
+  <header class="mob-header">
+    <div class="mob-header__brand">
+      <a href="index.html" aria-label="Inicio — [NOMBRE]">
+        <img class="logo logo--white" src="img/logo-white.png" alt="[NOMBRE]">
+        <img class="logo logo--black" src="img/logo-black.png" alt="[NOMBRE]">
+      </a>
     </div>
-  </div>
+    <button class="mob-header__toggle" id="mobToggle" aria-label="Abrir menú">Menu</button>
+  </header>
 
   <!-- =========================================================
-       HERO — imagen a sangre completa + tagline en la esquina
-       Reemplazar:
-         - el div .hero-placeholder por <img class="hero-img" ...>
-         - [TAGLINE] por la frase real
-       La imagen real debe colocarse en /img/ y referenciarse
-       como src="img/nombre-del-archivo.jpg".
+       PANEL MOBILE A PANTALLA COMPLETA
+       Fondo blanco, tipografía negra siempre.
+       Cierra al hacer click en cualquier link o en "Cerrar".
+       ========================================================= -->
+  <aside class="mob-panel" id="mobPanel">
+    <div class="mob-panel__header">
+      <a href="index.html" aria-label="Inicio">
+        <img class="logo logo--black" src="img/logo-black.png" alt="[NOMBRE]">
+      </a>
+      <button class="mob-panel__close" id="mobClose" aria-label="Cerrar menú">Cerrar</button>
+    </div>
+
+    <nav class="mob-panel__nav">
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <div class="mob-group__title">Our Work</div>
+        <ul class="mob-group__sublist">
+          <li><a href="work.html#project-1">[Proyecto 1]</a></li>
+          <li><a href="work.html#project-2">[Proyecto 2]</a></li>
+          <li><a href="work.html#project-3">[Proyecto 3]</a></li>
+          <li><a href="work.html#project-4">[Proyecto 4]</a></li>
+          <li><a href="work.html#project-5">[Proyecto 5]</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="clients.html">Clients</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Contacto al pie del panel mobile.
+         Único enlace: el email. -->
+    <div class="mob-panel__contact">
+      <a href="mailto:[EMAIL]">blummflowerst@gmail.com</a>
+      <span>-------</span>
+      
+      <span> - Tel:</span>
+      <span>11 5497 0878</span>
+
+      <span>-------</span>
+
+      <span> - instagram:</span>
+      <span>@blumm_studio</span>
+      <span>@blummflowerco</span>
+      <span>@casacavia</span>
+
+      <span>-------</span>   
+
+      <span> - Personal:</span>
+      <span>@cgassiebayle</span>
+      <span>@mgassiebayle</span>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       HERO — imagen a sangre completa (sin tagline)
        ========================================================= -->
   <section class="hero">
-
-    <!-- Placeholder: borrar este div cuando se sume la imagen real -->
-    <div class="hero-placeholder">[IMAGEN DE FONDO]</div>
-
-    <!-- Imagen real (descomentar y reemplazar el nombre del archivo):
-    <img class="hero-img"
-         src="img/hero.jpg"
-         alt="[Descripción de la imagen de fondo]">
-    -->
-
-    <div class="hero__tagline">[TAGLINE]</div>
+    <img class="hero-img" src="/img/portada03.jpg" alt="[Descripción]">
   </section>
 
-  <!-- Script compartido (defer para que corra tras el parseo del DOM) -->
   <script defer src="js/main.js"></script>
 </body>
 </html>

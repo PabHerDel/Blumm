@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[NOMBRE] — Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- body.home activa las letras blancas del menú -->
+<body class="home">
+
+  <!-- =========================================================
+       NAVEGACIÓN LATERAL IZQUIERDA
+       Reemplazar [NOMBRE], [EMAIL], [INSTAGRAM], [WHATSAPP],
+       [TELÉFONO], [CIUDAD, PAÍS].
+       ========================================================= -->
+  <nav class="nav">
+    <div class="nav__brand"><a href="index.html">[NOMBRE]</a></div>
+
+    <div class="nav__groups">
+
+      <!-- Grupo 1: About / Vision / Education -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 2: Our Work (título) + 5 proyectos -->
+      <div class="nav__group">
+        <div class="nav__group-title">Our Work</div>
+        <ul class="nav__group-sublist">
+          <!-- Reemplazar [PROYECTO N] con los nombres reales -->
+          <li><a href="work.html#project-1">[Proyecto 1]</a></li>
+          <li><a href="work.html#project-2">[Proyecto 2]</a></li>
+          <li><a href="work.html#project-3">[Proyecto 3]</a></li>
+          <li><a href="work.html#project-4">[Proyecto 4]</a></li>
+          <li><a href="work.html#project-5">[Proyecto 5]</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 3: Clients -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="clients.html">Clients</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Contacto al pie del menú -->
+    <div class="nav__contact">
+      <!-- Reemplazar con datos reales, cada dato en su línea -->
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">@[INSTAGRAM]</a>
+      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+      <span>[CIUDAD, PAÍS]</span>
+    </div>
+
+    <!-- Botón hamburguesa (sólo visible en mobile) -->
+    <div class="nav__mobile-header">
+      <button class="nav__toggle" aria-label="Abrir menú" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Panel de navegación mobile -->
+  <div class="nav__mobile-panel" id="navPanel">
+    <button class="close" id="navClose">Cerrar</button>
+    <a href="about.html">About</a>
+    <a href="vision.html">Vision</a>
+    <a href="education.html">Education &amp; Experience</a>
+    <div class="mob-title">Our Work</div>
+    <div class="mob-sub">
+      <a href="work.html#project-1">[Proyecto 1]</a>
+      <a href="work.html#project-2">[Proyecto 2]</a>
+      <a href="work.html#project-3">[Proyecto 3]</a>
+      <a href="work.html#project-4">[Proyecto 4]</a>
+      <a href="work.html#project-5">[Proyecto 5]</a>
+    </div>
+    <a href="clients.html">Clients</a>
+    <div class="contact">
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="https://instagram.com/[INSTAGRAM]" target="_blank" rel="noopener">@[INSTAGRAM]</a>
+      <a href="https://wa.me/[WHATSAPP]" target="_blank" rel="noopener">[WHATSAPP]</a>
+      <span>[CIUDAD, PAÍS]</span>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       HERO — imagen a sangre completa + tagline
+       Reemplazar el div .hero-placeholder por:
+         <img class="hero-img" src="img/hero.jpg" alt="[Descripción]">
+       Reemplazar [TAGLINE] con la frase real.
+       ========================================================= -->
+  <section class="hero">
+    <img class="hero-img" src="/img/Portada..JPG" alt="[Descripción]">
+    <!-- <img class="hero-img" src="img/hero.jpg" alt="[Descripción de la imagen]"> -->
+    <div class="hero__tagline">[TAGLINE]</div>
+  </section>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>
