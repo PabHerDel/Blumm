@@ -26,7 +26,7 @@
     document.body.classList.add('is-loaded');
   
     const splash      = document.getElementById('splash');
-    const SPLASH_HOLD = 1500;  // segundos visible
+    const SPLASH_HOLD = 1800;  // segundos visible
     const FADE_OUT    = 800;   // duración del fade out
     
     if (!splash) return;
