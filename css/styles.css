@@ -23,7 +23,7 @@
 @font-face {
   font-family: 'cabin';
   /* Reemplazar con la ruta real al archivo TTF regular */
-  src: url('/fonts/Cabin-VariableFont_wdth/,wght.ttf') format('truetype');
+  src: url('./fonts/Cabin-VariableFont_wdth/,wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -31,7 +31,7 @@
 @font-face {
   font-family: 'LTC Nicolas Cochin';
   /* Reemplazar con la ruta real al archivo TTF italic */
-  src: url('/fonts/NicolasCochin.ttf') format('truetype');
+  src: url('./fonts/NicolasCochin.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
