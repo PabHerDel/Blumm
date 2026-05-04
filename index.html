@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[NOMBRE] — Home</title>
+  <title>Blumm Studio — Home</title>
+  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" href="/img/favicon-180.png">
   <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -64,23 +66,26 @@
 
     <!-- Datos de contacto al pie del menú.
          Único enlace: el email. El resto en texto plano. -->
+
     <div class="nav__contact">
       <a href="mailto:[EMAIL]">blummflowerst@gmail.com</a>      
       <span>11 5497 0878</span>      
-      <span> </span>
-      <span> </span>
 
-      <span>Instagram ::</span>
-      <span>     
-      <span>@blumm_studio</span>
-      <span>@blummflowerco</span>
-      <span>@casacavia</span>
+      <span class="footer__division"></span>
+
+      <span class="footer__title">Instagram:</span>
+      <span>
+      <a href="https://www.instagram.com/blumm_studio/">@blumm_studio</a>
+      <a href="https://www.instagram.com/blummflowerco/">@blummflowerco</a>
+      <a href="https://www.instagram.com/casacavia">@casacavia</a>          
       </span>
 
-      <span>personal ::</span>
+      <span class="footer__division"> </span>
+
+      <span class="footer__title">personal:</span>
       <span>       
-      <span>@cgassiebayle</span>
-      <span>@mgassiebayle</span>
+      <a href="https://www.instagram.com/cgassiebayle">@cgassiebayle</a>
+      <a href="https://www.instagram.com/mgassiebayle">@mgassiebayle</a>   
       </span>
     </div>
   </nav>
@@ -169,6 +174,13 @@
   <section class="hero">
     <img class="hero-img" src="/img/portada03.jpg" alt="[Descripción]">
   </section>
+
+   <!-- Splash inicial: logo centrado que se desvanece después de 2s -->
+  <div class="splash" id="splash">
+    <img class="splash__logo" src="/img/isotipoBlanco.png" alt="Blumm Studio">
+  </div>
+
+  
 
   <script defer src="js/main.js"></script>
 </body>

@@ -46,7 +46,7 @@
   --color-ink:  #0A0A0A;
   --color-mid:  #555555;
   --color-rule: #CCCCCC;
-  --nav-width:  228px;
+  --nav-width:  300px;
   --header-h:   60px;   /* alto del header mobile */
 }
 
@@ -132,24 +132,34 @@ html.js body.is-leaving { opacity: 0; }
 /* — Cada grupo: '&' como viñeta — */
 .nav__group {
   position: relative;
-  padding-left: 18px;
+  padding-left: 32px;
+  margin-bottom: 16px;
 }
 .nav__group::before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
-  font-size: 11px;
+  font-size: 14x;
   letter-spacing: 0;
   opacity: 0.45;
 }
 
+.footer__division {
+  margin-bottom: 4px;
+}
+
+.footer__title {
+  font-size: 12px !important ;
+  opacity: 0.5;
+}
+
 /* Título de grupo (no clickeable — p.ej. "Our Work") */
 .nav__group-title {
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.18em;
-  opacity: 0.45;
-  margin-bottom: 12px;
+  opacity: 0.55;
+  margin-bottom: 16px;
   pointer-events: none;
 }
 
@@ -173,11 +183,11 @@ html.js body.is-leaving { opacity: 0; }
   transition: opacity 0.15s ease;
 }
 .nav__group-list a {
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.18em;
 }
 .nav__group-sublist a {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.14em;
 }
 
@@ -185,7 +195,6 @@ html.js body.is-leaving { opacity: 0; }
 .nav__group-list a:hover,
 .nav__group-sublist a:hover {
   text-decoration: underline dotted;
-  content: "x";
 }
 
 /* ---- ESTADO ACTIVO ----
@@ -193,7 +202,7 @@ html.js body.is-leaving { opacity: 0; }
    El guion va con position: absolute para que no mueva el texto. */
 .nav__group-list a::before,
 .nav__group-sublist a::before {
-  content: "—";
+  content: ">";
   position: absolute;
   right: calc(100% + 6px);
   top: 50%;
@@ -208,6 +217,12 @@ html.js body.is-leaving { opacity: 0; }
 .nav__group-list a.active::before,
 .nav__group-sublist a.active::before {
   opacity: 1;
+  font-weight: 00 !important;
+}
+
+.nav__group-list a.active,
+.nav__group-sublist a.active {
+  font-weight: 600;
 }
 
 /* — Datos de contacto al pie — */
@@ -220,7 +235,7 @@ html.js body.is-leaving { opacity: 0; }
 }
 .nav__contact span,
 .nav__contact a {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.05em;
   line-height: 1.75;
 }
@@ -314,6 +329,7 @@ body.home .nav a { color: #FFFFFF; }
 }
 .article__title {
   font-family: 'LTC Nicolas Cochin', serif;
+  font-weight: normal;
   font-size: clamp(24px, 3vw, 40px);
   letter-spacing: -0.01em;
   line-height: 1.05;
@@ -341,14 +357,19 @@ body.home .nav a { color: #FFFFFF; }
 .edu {
   margin-left: var(--nav-width);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr;
 }
 .edu__image {
-  position: sticky;
-  top: 0;
+  top: 100px;
   height: 100vh;
+  margin-top: 118px;
+  margin-right: 16px;
   align-self: start;
   overflow: hidden;
+  opacity: 80%;
+  border-radius: 4px;
+
+  
 }
 .edu__image-placeholder {
   width: 100%;
@@ -367,14 +388,16 @@ body.home .nav a { color: #FFFFFF; }
   object-fit: cover;
 }
 .edu__content {
-  padding: 80px 60px 120px 60px;
+  padding: 80px 80px 120px 48px;
   min-height: 100vh;
 }
 .edu__label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-size:18px;
+  font-weight: bold;
+  letter-spacing: 0.5em;
   color: var(--color-mid);
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 .edu__rule {
   border: none;
@@ -385,7 +408,7 @@ body.home .nav a { color: #FFFFFF; }
   display: grid;
   grid-template-columns: 48px 1fr;
   column-gap: 16px;
-  padding: 32px 0;
+  padding: 24px 0;
   border-top: 1px solid var(--color-rule);
 }
 .entry:first-of-type { border-top: none; padding-top: 0; }
@@ -396,7 +419,8 @@ body.home .nav a { color: #FFFFFF; }
   padding-top: 8px;
 }
 .entry__title {
-  font-style: italic;
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-weight: normal;
   font-size: 22px;
   letter-spacing: -0.01em;
   color: var(--color-ink);
@@ -425,10 +449,12 @@ body.home .nav a { color: #FFFFFF; }
   padding: 80px 80px 0 80px;
 }
 .work__label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-size:18px;
+  font-weight: bold;
+  letter-spacing: 0.5em;
   color: var(--color-mid);
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 .work__rule {
   border: none;
@@ -439,7 +465,8 @@ body.home .nav a { color: #FFFFFF; }
 .project { margin-bottom: 120px; scroll-margin-top: 40px; }
 .project__header { margin-bottom: 48px; }
 .project__title {
-  font-style: italic;
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-weight: normal;
   font-size: clamp(28px, 4vw, 48px);
   letter-spacing: -0.01em;
   line-height: 1.1;
@@ -511,10 +538,12 @@ body.home .nav a { color: #FFFFFF; }
   min-height: 100vh;
 }
 .clients__label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-size:18px;
+  font-weight: bold;
+  letter-spacing: 0.5em;
   color: var(--color-mid);
-  padding-bottom: 20px;
+  padding-bottom: 16px;
 }
 .clients__rule {
   border: none;
@@ -707,6 +736,8 @@ body.home .nav a { color: #FFFFFF; }
     opacity: 0.45;
   }
   .mob-group__title {
+    font-family: 'LTC Nicolas Cochin', serif;
+    font-weight: normal;
     font-size: 11px;
     letter-spacing: 0.18em;
     opacity: 0.45;
@@ -769,6 +800,8 @@ body.home .nav a { color: #FFFFFF; }
     font-size: 16px;
   }
   .article__title {
+    font-family: 'LTC Nicolas Cochin', serif;
+    font-weight: normal;
     margin-bottom: 40px;
     font-size: clamp(36px, 9vw, 56px);
   }
@@ -787,9 +820,9 @@ body.home .nav a { color: #FFFFFF; }
     padding: 40px 24px 64px 24px;
   }
   .entry {
-    grid-template-columns: 36px 1fr;
-    column-gap: 12px;
-    padding: 28px 0;
+    grid-template-columns: 48px 1fr;
+    column-gap: 16px;
+    padding: 16px 0;
   }
   .entry__title { font-size: 19px; }
   .entry__desc  { font-size: 14px; }
@@ -826,4 +859,33 @@ body.home .nav a { color: #FFFFFF; }
     padding: 22px 0;
   }
   .list__name { font-size: 17px; }
+}
+
+.splash {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+  transition: opacity 600ms ease;
+}
+
+.splash--hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 600ms ease, visibility 0ms linear 600ms;
+}
+
+.splash__logo {
+  width: 400px;
+  height: auto;
+}
+
+/* Nav y header mobile ocultos durante el splash */
+body.splash-active .nav,
+body.splash-active .mob-header {
+  opacity: 0.3;
+  transition: opacity 600ms ease;
 }

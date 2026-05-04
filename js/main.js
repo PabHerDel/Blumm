@@ -18,17 +18,34 @@
      - Al hacer click en un link interno: agregar .is-leaving,
        esperar la transición y recién entonces navegar.
      --------------------------------------------------------- */
-  var FADE_MS = 200;
+  var FADE_MS = 600;
 
   /* Entrada: animar in */
   function showPage() {
+    console.log("funcion ejecuctando");
     document.body.classList.add('is-loaded');
+  
+    const splash      = document.getElementById('splash');
+    const SPLASH_HOLD = 1500;  // segundos visible
+    const FADE_OUT    = 800;   // duración del fade out
+    
+    if (!splash) return;
+  
+    // Nav arranca al 30%
+    document.body.classList.add('splash-active');
+  
+    // Después de 3s: logo desaparece y nav sube a 100% — simultáneo
+    setTimeout(function() {
+      splash.classList.add('splash--hidden');
+      document.body.classList.remove('splash-active');
+    }, SPLASH_HOLD);
+  
+    // Después del fade out: sacar el splash del DOM
+    setTimeout(function() {
+      splash.style.display = 'none';
+    }, SPLASH_HOLD + FADE_OUT);
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', showPage);
-  } else {
-    showPage();
-  }
+
 
   /* Si el usuario vuelve por back/forward, restaurar visibilidad */
   window.addEventListener('pageshow', function (e) {
@@ -166,5 +183,10 @@
 
     projects.forEach(function (sec) { spyIO.observe(sec); });
   }
-
+  // ← esto es lo que faltaba, va acá al final
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', showPage);
+  } else {
+    showPage();
+  }
 })();
