@@ -57,7 +57,7 @@
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 
 body {
   font-family: 'cabin', serif;
