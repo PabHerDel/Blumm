@@ -15,15 +15,25 @@
   <!-- =========================================================
        NAVEGACIÓN LATERAL — DESKTOP
        ========================================================= -->
+  <!-- =========================================================
+       NAVEGACIÓN LATERAL — DESKTOP
+       LOGO: dos archivos PNG en /img/
+         - img/logo-white.png   (para fondos oscuros: home)
+         - img/logo-black.png   (para fondos blancos: resto)
+       Ambas versiones se incluyen siempre; el CSS muestra/oculta
+       según la página.
+       ========================================================= -->
   <nav class="nav">
     <div class="nav__brand">
-      <a href="index.html" aria-label="Inicio — [NOMBRE]">
+      <a href="index.html" aria-label="Inicio — Blumm Studio">
         <img class="logo logo--white" src="./img/imagotipo_white.png" alt="Blumm Studio">
         <img class="logo logo--black" src="./img/imagotipo_black.png" alt="Blumm Studio">
       </a>
     </div>
 
     <div class="nav__groups">
+
+      <!-- Grupo 1: About / Vision / Education -->
       <div class="nav__group">
         <ul class="nav__group-list">
           <li><a href="about.html">About</a></li>
@@ -32,28 +42,42 @@
         </ul>
       </div>
 
+      <!-- Grupo 2: Our Work — título no clickeable + 9 proyectos -->
       <div class="nav__group">
         <div class="nav__group-title">Our Work</div>
         <ul class="nav__group-sublist">
-          <!-- Reemplazar [Proyecto N] con los nombres reales -->
-          <li><a href="work.html#project-1">[Proyecto 1]</a></li>
-          <li><a href="work.html#project-2">[Proyecto 2]</a></li>
-          <li><a href="work.html#project-3">[Proyecto 3]</a></li>
-          <li><a href="work.html#project-4">[Proyecto 4]</a></li>
-          <li><a href="work.html#project-5">[Proyecto 5]</a></li>
+          <li><a href="work.html#editorial">Editorial</a></li>
+          <li><a href="work.html#experimental">Experimental</a></li>
+          <li><a href="work.html#hotelFlowerDesign">Hotel Flower Design</a></li>
+          <li><a href="work.html#proyect01">Proyecto 01</a></li>
+          <li><a href="work.html#proyect02">Proyecto 02</a></li>
+          <li><a href="work.html#proyect03">Proyecto 03</a></li>
+          <li><a href="work.html#proyect04">Proyecto 04</a></li>
+          <li><a href="work.html#proyect05">Proyecto 05</a></li>
+          <li><a href="work.html#proyect06">Proyecto 06</a></li>
         </ul>
       </div>
 
+      <!-- Grupo 3: Clients + Contact -->
       <div class="nav__group">
         <ul class="nav__group-list">
           <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
+
     </div>
 
-    <div class="nav__contact">
+    <!-- Datos de contacto al pie del menú.
+         Único enlace: el email. El resto en texto plano.
+      UPDATE -  Se quita de aqui los datos de contacto, ahora contact us tiene su sección -->
+
+    <!-- <div class="nav__contact">
+      <span>Contact Us:</span>
+      <span class="footer__division"></span>
       <a href="mailto:[EMAIL]">blummflowerst@gmail.com</a>      
-      <span>11 5497 0878</span>      
+      <span>11 5497 0878</span>
+      <a href="https://www.blumm.com.ar/">www.blumm.com.ar</a>      
 
       <span class="footer__division"></span>
 
@@ -61,18 +85,17 @@
       <span>
       <a href="https://www.instagram.com/blumm_studio/">@blumm_studio</a>
       <a href="https://www.instagram.com/blummflowerco/">@blummflowerco</a>
-      <a href="https://www.instagram.com/casacavia">@casacavia</a>          
       </span>
 
-      <span class="footer__division"> </span>
-
-      <span class="footer__title">personal:</span>
-      <span>       
-      <a href="https://www.instagram.com/cgassiebayle">@cgassiebayle</a>
-      <a href="https://www.instagram.com/mgassiebayle">@mgassiebayle</a>   
-      </span>
     </div>
+    -->
+
+    <div class="nav__legal">
+      <span>©2026 Blumm Studio. Todos los derechos reservados.</span>
+    </div>
+    
   </nav>
+
 
   <!-- =========================================================
        HEADER MOBILE

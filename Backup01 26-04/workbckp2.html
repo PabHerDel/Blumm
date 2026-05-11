@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blumm Studio — Our Work</title>
+  <link rel="icon" href="./img/favicon.png">
+  <link rel="apple-touch-icon" href="./img/favicon-180.png">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVEGACIÓN LATERAL — DESKTOP
+       ========================================================= -->
+  <nav class="nav">
+    <div class="nav__brand">
+      <a href="index.html" aria-label="Inicio — Blumm Studio">
+        <img class="logo logo--white" src="./img/imagotipo_white.png" alt="Blumm Studio">
+        <img class="logo logo--black" src="./img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
+    </div>
+
+    <div class="nav__groups">
+
+      <!-- Grupo 1: About / Vision / Education -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 2: Our Work — título no clickeable + 9 proyectos -->
+      <div class="nav__group">
+        <div class="nav__group-title">Our Work</div>
+        <ul class="nav__group-sublist">
+          <li><a href="#editorial" class="active">Editorial</a></li>
+          <li><a href="#experimental">Experimental</a></li>
+          <li><a href="#hotelFlowerDesign">Hotel Flower Design</a></li>
+          <li><a href="#proyect01">Proyecto 01</a></li>
+          <li><a href="#proyect02">Proyecto 02</a></li>
+          <li><a href="#proyect03">Proyecto 03</a></li>
+          <li><a href="#proyect04">Proyecto 04</a></li>
+          <li><a href="#proyect05">Proyecto 05</a></li>
+          <li><a href="#proyect06">Proyecto 06</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 3: Clients + Contact -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Pie legal -->
+    <div class="nav__legal">
+      <span>©2026 Blumm Studio. Todos los derechos reservados.</span>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       HEADER MOBILE
+       ========================================================= -->
+  <header class="mob-header">
+    <div class="mob-header__brand">
+      <a href="index.html" aria-label="Inicio — Blumm Studio">
+        <img class="logo logo--white" src="./img/imagotipo_white.png" alt="Blumm Studio">
+        <img class="logo logo--black" src="./img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
+    </div>
+    <button class="mob-header__toggle" id="mobToggle" aria-label="Abrir menú">Menu</button>
+  </header>
+
+
+  <!-- =========================================================
+       PANEL MOBILE A PANTALLA COMPLETA
+       ========================================================= -->
+  <aside class="mob-panel" id="mobPanel">
+    <div class="mob-panel__header">
+      <a href="index.html" aria-label="Inicio">
+        <img class="logo logo--black" src="./img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
+      <button class="mob-panel__close" id="mobClose" aria-label="Cerrar menú">Cerrar</button>
+    </div>
+
+    <nav class="mob-panel__nav">
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <div class="mob-group__title">Our Work</div>
+        <ul class="mob-group__sublist">
+          <li><a href="#editorial">Editorial</a></li>
+          <li><a href="#experimental">Experimental</a></li>
+          <li><a href="#hotelFlowerDesign">Hotel Flower Design</a></li>
+          <li><a href="#proyect01">Proyecto 01</a></li>
+          <li><a href="#proyect02">Proyecto 02</a></li>
+          <li><a href="#proyect03">Proyecto 03</a></li>
+          <li><a href="#proyect04">Proyecto 04</a></li>
+          <li><a href="#proyect05">Proyecto 05</a></li>
+          <li><a href="#proyect06">Proyecto 06</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="nav__contact">
+      <a href="mailto:blummflowerst@gmail.com">blummflowerst@gmail.com</a>
+      <span>11 5497 0878</span>
+
+      <span class="footer__division"></span>
+
+      <span class="footer__title">Instagram:</span>
+      <span>
+        <span>@blumm_studio</span>
+        <span>@blummflowerco</span>
+        <span>@casacavia</span>
+      </span>
+
+      <span class="footer__division"></span>
+
+      <span class="footer__title">Personal:</span>
+      <span>
+        <span>@cgassiebayle</span>
+        <span>@mgassiebayle</span>
+      </span>
+    </div>
+
+    <div class="nav__legal">
+      <span>©2026 Blumm Studio. Todos los derechos reservados.</span>
+    </div>
+  </aside>
+
+
+  <!-- =========================================================
+       CONTENIDO — OUR WORK
+       9 proyectos con galerías asimétricas de 12 columnas.
+       Imágenes: loading="lazy" para carga progresiva.
+       Pie de imagen oculto por defecto (span vacíos listos
+       para completar con texto cuando sea necesario).
+       ========================================================= -->
+  <main class="work">
+    <div class="work__label">Our Work</div>
+    <hr class="work__rule">
+
+
+    <!-- ═══════════════════════════════ EDITORIAL ═══════════════════════════════ -->
+    <section class="project fade-in" id="editorial">
+      <div class="project__header">
+        <h2 class="project__title">Editorial</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/editorial/01.webp" alt="Editorial — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/editorial/02.webp" alt="Editorial — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/editorial/03.webp" alt="Editorial — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/editorial/04.webp" alt="Editorial — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/editorial/05.webp" alt="Editorial — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/editorial/06.webp" alt="Editorial — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/editorial/07.webp" alt="Editorial — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/editorial/08.webp" alt="Editorial — 08" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/editorial/09.webp" alt="Editorial — 09" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ EXPERIMENTAL ═══════════════════════════════ -->
+    <section class="project fade-in" id="experimental">
+      <div class="project__header">
+        <h2 class="project__title">Experimental</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/experimental/01.webp" alt="Experimental — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/experimental/02.webp" alt="Experimental — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/experimental/03.webp" alt="Experimental — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/experimental/04.webp" alt="Experimental — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/experimental/05.webp" alt="Experimental — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/experimental/06.webp" alt="Experimental — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/experimental/07.webp" alt="Experimental — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/experimental/08.webp" alt="Experimental — 08" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/experimental/09.webp" alt="Experimental — 09" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/experimental/10.webp" alt="Experimental — 10" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/experimental/11.webp" alt="Experimental — 11" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/experimental/12.webp" alt="Experimental — 12" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/experimental/13.webp" alt="Experimental — 13" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/experimental/14.webp" alt="Experimental — 14" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ HOTEL FLOWER DESIGN ═══════════════════════════════ -->
+    <section class="project fade-in" id="hotelFlowerDesign">
+      <div class="project__header">
+        <h2 class="project__title">Hotel Flower Design</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/01.webp" alt="Hotel Flower Design — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/02.webp" alt="Hotel Flower Design — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/03.webp" alt="Hotel Flower Design — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert offset-1">
+          <img class="item__img" src="./img/hotelFlowerDesign/04.webp" alt="Hotel Flower Design — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/05.webp" alt="Hotel Flower Design — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/06.webp" alt="Hotel Flower Design — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/07.webp" alt="Hotel Flower Design — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/08.webp" alt="Hotel Flower Design — 08" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/hotelFlowerDesign/09.webp" alt="Hotel Flower Design — 09" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/10.webp" alt="Hotel Flower Design — 10" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/11.webp" alt="Hotel Flower Design — 11" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/12.webp" alt="Hotel Flower Design — 12" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/13.webp" alt="Hotel Flower Design — 13" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/14.webp" alt="Hotel Flower Design — 14" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert offset-1">
+          <img class="item__img" src="./img/hotelFlowerDesign/15.webp" alt="Hotel Flower Design — 15" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/16.webp" alt="Hotel Flower Design — 16" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/17.webp" alt="Hotel Flower Design — 17" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/hotelFlowerDesign/18.webp" alt="Hotel Flower Design — 18" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/19.webp" alt="Hotel Flower Design — 19" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/hotelFlowerDesign/20.webp" alt="Hotel Flower Design — 20" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/hotelFlowerDesign/21.webp" alt="Hotel Flower Design — 21" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ PROYECTO 01 ═══════════════════════════════ -->
+    <section class="project fade-in" id="proyect01">
+      <div class="project__header">
+        <h2 class="project__title">Proyecto 01</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect01/01.webp" alt="Proyecto 01 — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/02.webp" alt="Proyecto 01 — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect01/03.webp" alt="Proyecto 01 — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect01/04.webp" alt="Proyecto 01 — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/05.webp" alt="Proyecto 01 — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect01/06.webp" alt="Proyecto 01 — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect01/07.webp" alt="Proyecto 01 — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/proyect01/08.webp" alt="Proyecto 01 — 08" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect01/09.webp" alt="Proyecto 01 — 09" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect01/10.webp" alt="Proyecto 01 — 10" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/11.webp" alt="Proyecto 01 — 11" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect01/12.webp" alt="Proyecto 01 — 12" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/13.webp" alt="Proyecto 01 — 13" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect01/14.webp" alt="Proyecto 01 — 14" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect01/15.webp" alt="Proyecto 01 — 15" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/16.webp" alt="Proyecto 01 — 16" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect01/17.webp" alt="Proyecto 01 — 17" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect01/18.webp" alt="Proyecto 01 — 18" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/proyect01/19.webp" alt="Proyecto 01 — 19" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect01/20.webp" alt="Proyecto 01 — 20" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect01/21.webp" alt="Proyecto 01 — 21" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/22.webp" alt="Proyecto 01 — 22" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect01/23.webp" alt="Proyecto 01 — 23" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/24.webp" alt="Proyecto 01 — 24" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect01/25.webp" alt="Proyecto 01 — 25" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect01/26.webp" alt="Proyecto 01 — 26" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect01/27.webp" alt="Proyecto 01 — 27" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect01/28.webp" alt="Proyecto 01 — 28" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect01/29.webp" alt="Proyecto 01 — 29" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/proyect01/30.webp" alt="Proyecto 01 — 30" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect01/31.webp" alt="Proyecto 01 — 31" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect01/32.webp" alt="Proyecto 01 — 32" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ PROYECTO 02 ═══════════════════════════════ -->
+    <section class="project fade-in" id="proyect02">
+      <div class="project__header">
+        <h2 class="project__title">Proyecto 02</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--lg item--horiz">
+          <div class="item__img"></div>
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <div class="item__img"></div>
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <div class="item__img"></div>
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <div class="item__img"></div>
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ PROYECTO 03 ═══════════════════════════════ -->
+    <section class="project fade-in" id="proyect03">
+      <div class="project__header">
+        <h2 class="project__title">Proyecto 03</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect03/01.webp" alt="Proyecto 03 — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect03/02.webp" alt="Proyecto 03 — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/proyect03/03.webp" alt="Proyecto 03 — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert offset-1">
+          <img class="item__img" src="./img/proyect03/04.webp" alt="Proyecto 03 — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect03/05.webp" alt="Proyecto 03 — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect03/06.webp" alt="Proyecto 03 — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/proyect03/07.webp" alt="Proyecto 03 — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect03/08.webp" alt="Proyecto 03 — 08" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect03/09.webp" alt="Proyecto 03 — 09" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect03/10.webp" alt="Proyecto 03 — 10" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect03/11.webp" alt="Proyecto 03 — 11" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect03/12.webp" alt="Proyecto 03 — 12" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect03/13.webp" alt="Proyecto 03 — 13" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/proyect03/14.webp" alt="Proyecto 03 — 14" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ PROYECTO 04 ═══════════════════════════════ -->
+    <section class="project fade-in" id="proyect04">
+      <div class="project__header">
+        <h2 class="project__title">Proyecto 04</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect04/01.webp" alt="Proyecto 04 — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect04/02.webp" alt="Proyecto 04 — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect04/03.webp" alt="Proyecto 04 — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect04/04.webp" alt="Proyecto 04 — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect04/05.webp" alt="Proyecto 04 — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect04/06.webp" alt="Proyecto 04 — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect04/07.webp" alt="Proyecto 04 — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ PROYECTO 05 ═══════════════════════════════ -->
+    <section class="project fade-in" id="proyect05">
+      <div class="project__header">
+        <h2 class="project__title">Proyecto 05</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/proyect05/01.webp" alt="Proyecto 05 — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect05/02.webp" alt="Proyecto 05 — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect05/03.webp" alt="Proyecto 05 — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect05/04.webp" alt="Proyecto 05 — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/05.webp" alt="Proyecto 05 — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect05/06.webp" alt="Proyecto 05 — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/07.webp" alt="Proyecto 05 — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect05/08.webp" alt="Proyecto 05 — 08" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect05/09.webp" alt="Proyecto 05 — 09" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect05/10.webp" alt="Proyecto 05 — 10" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect05/11.webp" alt="Proyecto 05 — 11" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/proyect05/12.webp" alt="Proyecto 05 — 12" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect05/13.webp" alt="Proyecto 05 — 13" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect05/14.webp" alt="Proyecto 05 — 14" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect05/15.webp" alt="Proyecto 05 — 15" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/16.webp" alt="Proyecto 05 — 16" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect05/17.webp" alt="Proyecto 05 — 17" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/18.webp" alt="Proyecto 05 — 18" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect05/19.webp" alt="Proyecto 05 — 19" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect05/20.webp" alt="Proyecto 05 — 20" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect05/21.webp" alt="Proyecto 05 — 21" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect05/22.webp" alt="Proyecto 05 — 22" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/proyect05/23.webp" alt="Proyecto 05 — 23" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect05/24.webp" alt="Proyecto 05 — 24" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect05/25.webp" alt="Proyecto 05 — 25" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect05/26.webp" alt="Proyecto 05 — 26" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/27.webp" alt="Proyecto 05 — 27" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect05/28.webp" alt="Proyecto 05 — 28" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/29.webp" alt="Proyecto 05 — 29" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect05/30.webp" alt="Proyecto 05 — 30" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect05/31.webp" alt="Proyecto 05 — 31" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect05/32.webp" alt="Proyecto 05 — 32" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect05/33.webp" alt="Proyecto 05 — 33" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/proyect05/34.webp" alt="Proyecto 05 — 34" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect05/35.webp" alt="Proyecto 05 — 35" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect05/36.webp" alt="Proyecto 05 — 36" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect05/37.webp" alt="Proyecto 05 — 37" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/38.webp" alt="Proyecto 05 — 38" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect05/39.webp" alt="Proyecto 05 — 39" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect05/40.webp" alt="Proyecto 05 — 40" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+      <hr class="project__divider">
+    </section>
+
+
+    <!-- ═══════════════════════════════ PROYECTO 06 ═══════════════════════════════ -->
+    <section class="project fade-in" id="proyect06">
+      <div class="project__header">
+        <h2 class="project__title">Proyecto 06</h2>
+        <div class="project__meta"></div>
+      </div>
+
+      <div class="grid">
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect06/01.webp" alt="Proyecto 06 — 01" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect06/02.webp" alt="Proyecto 06 — 02" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz">
+          <img class="item__img" src="./img/proyect06/03.webp" alt="Proyecto 06 — 03" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert offset-1">
+          <img class="item__img" src="./img/proyect06/04.webp" alt="Proyecto 06 — 04" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--vert">
+          <img class="item__img" src="./img/proyect06/05.webp" alt="Proyecto 06 — 05" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect06/06.webp" alt="Proyecto 06 — 06" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--horiz">
+          <img class="item__img" src="./img/proyect06/07.webp" alt="Proyecto 06 — 07" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect06/08.webp" alt="Proyecto 06 — 08" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--lg item--horiz offset-1">
+          <img class="item__img" src="./img/proyect06/09.webp" alt="Proyecto 06 — 09" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--sm item--vert">
+          <img class="item__img" src="./img/proyect06/10.webp" alt="Proyecto 06 — 10" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect06/11.webp" alt="Proyecto 06 — 11" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--vert">
+          <img class="item__img" src="./img/proyect06/12.webp" alt="Proyecto 06 — 12" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+        <figure class="item item--md item--horiz">
+          <img class="item__img" src="./img/proyect06/13.webp" alt="Proyecto 06 — 13" loading="lazy">
+          <figcaption class="item__caption">
+            <span class="item__num"></span>
+            <span class="item__desc"></span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+  </main>
+
+  <script defer src="./js/main.js"></script>
+</body>
+</html>

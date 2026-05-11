@@ -12,6 +12,7 @@
      8.  Página: Education & Experience
      9.  Página: Our Work
      10. Página: Clients
+         Contact
      11. Utilidades (fade-in)
      12. Responsive mobile (≤ 768px)
    ============================================================= */
@@ -146,7 +147,7 @@ html.js body.is-leaving { opacity: 0; }
 }
 
 .footer__division {
-  margin-bottom: 4px;
+  margin-bottom: 16px;
 }
 
 .footer__title {
@@ -161,6 +162,16 @@ html.js body.is-leaving { opacity: 0; }
   opacity: 0.65;
   margin-bottom: 16px;
   pointer-events: none;
+}
+
+.nav__legal {
+  font-size:11px;
+  font-weight: lighter !important;
+  line-height: 160%;
+  letter-spacing: 0.18em;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
 }
 
 /* Lista de links */
@@ -243,7 +254,45 @@ html.js body.is-leaving { opacity: 0; }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+.nav__contact-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'LTC Nicolas Cochin', serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: inherit;
+  padding: 0;
+}
 
+.nav__contact-drawer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms ease, opacity 400ms ease;
+  opacity: 0;
+}
+
+.nav__contact-drawer.open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.nav__contact-drawer span,
+.nav__contact-drawer a {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+}
+.igTitle{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px ;
+}
 /* — Header mobile + panel: ocultos en desktop — */
 .mob-header { display: none; }
 .mob-panel  { display: none; }
@@ -316,8 +365,8 @@ body.home .nav a { color: #FFFFFF; }
 }
 .article__label {
   font-family: 'LTC Nicolas Cochin', serif;
-  font-size:18px;
-  font-weight: bold;
+  font-size:24px;
+  font-weight: normal;
   letter-spacing: 0.5em;
   color: var(--color-mid);
   padding-bottom: 16px;
@@ -330,19 +379,29 @@ body.home .nav a { color: #FFFFFF; }
 .article__title {
   font-family: 'LTC Nicolas Cochin', serif;
   font-weight: normal;
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(24px, 3vw, 36px);
   letter-spacing: -0.01em;
   line-height: 1.05;
   color: var(--color-ink);
-  margin-bottom: 72px;
+  margin-bottom: 16px;
   max-width: 90%;
 }
+
+.article__divisor {
+  border-bottom: 1px solid #979797;
+  margin: 40px 0 40px 0;
+  width: 40%;
+  opacity: 40%;
+}
+
+
 .article__body {
   column-count: 2;
-  column-gap: 80px;
+  column-gap: 48px;
   font-size: 17px;
   line-height: 1.5;
   max-width: 900px;
+  margin-bottom: 56px;
   color: var(--color-ink);
 }
 .article__body p {
@@ -393,8 +452,8 @@ body.home .nav a { color: #FFFFFF; }
 }
 .edu__label {
   font-family: 'LTC Nicolas Cochin', serif;
-  font-size:18px;
-  font-weight: bold;
+  font-size:24px;
+  font-weight: normal;
   letter-spacing: 0.5em;
   color: var(--color-mid);
   padding-bottom: 16px;
@@ -421,7 +480,7 @@ body.home .nav a { color: #FFFFFF; }
 .entry__title {
   font-family: 'LTC Nicolas Cochin', serif;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 28px;
   letter-spacing: -0.01em;
   color: var(--color-ink);
   line-height: 1.2;
@@ -451,8 +510,8 @@ body.home .nav a { color: #FFFFFF; }
 }
 .work__label {
   font-family: 'LTC Nicolas Cochin', serif;
-  font-size:18px;
-  font-weight: bold;
+  font-size:24px;
+  font-weight: normal;
   letter-spacing: 0.5em;
   color: var(--color-mid);
   padding-bottom: 16px;
@@ -463,7 +522,7 @@ body.home .nav a { color: #FFFFFF; }
   margin-bottom: 80px;
 }
 
-.project { margin-bottom: 120px; scroll-margin-top: 40px; }
+.project { margin-bottom: 200px; scroll-margin-top: 40px; }
 .project__header { margin-bottom: 48px; }
 .project__title {
   font-family: 'LTC Nicolas Cochin', serif;
@@ -540,8 +599,8 @@ body.home .nav a { color: #FFFFFF; }
 }
 .clients__label {
   font-family: 'LTC Nicolas Cochin', serif;
-  font-size:18px;
-  font-weight: bold;
+  font-size:28px;
+  font-weight: normal;
   letter-spacing: 0.5em;
   color: var(--color-mid);
   padding-bottom: 16px;

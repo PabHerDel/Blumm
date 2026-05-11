@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blumm Studio — Contact Us</title>
+  <link rel="icon" href="./img/favicon.png">
+  <link rel="apple-touch-icon" href="./img/favicon-180.png">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       NAVEGACIÓN LATERAL — DESKTOP
+       LOGO: dos archivos PNG en /img/
+         - img/logo-white.png   (para fondos oscuros: home)
+         - img/logo-black.png   (para fondos blancos: resto)
+       Ambas versiones se incluyen siempre; el CSS muestra/oculta
+       según la página.
+       ========================================================= -->
+  <nav class="nav">
+    <div class="nav__brand">
+      <a href="index.html" aria-label="Inicio — Blumm Studio">
+        <img class="logo logo--white" src="./img/imagotipo_white.png" alt="Blumm Studio">
+        <img class="logo logo--black" src="./img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
+    </div>
+
+    <div class="nav__groups">
+
+      <!-- Grupo 1: About / Vision / Education -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 2: Our Work — título no clickeable + 9 proyectos -->
+      <div class="nav__group">
+        <div class="nav__group-title">Our Work</div>
+        <ul class="nav__group-sublist">
+          <li><a href="work.html#editorial">Editorial</a></li>
+          <li><a href="work.html#experimental">Experimental</a></li>
+          <li><a href="work.html#hotelFlowerDesign">Hotel Flower Design</a></li>
+          <li><a href="work.html#proyect01">Proyecto 01</a></li>
+          <li><a href="work.html#proyect02">Proyecto 02</a></li>
+          <li><a href="work.html#proyect03">Proyecto 03</a></li>
+          <li><a href="work.html#proyect04">Proyecto 04</a></li>
+          <li><a href="work.html#proyect05">Proyecto 05</a></li>
+          <li><a href="work.html#proyect06">Proyecto 06</a></li>
+        </ul>
+      </div>
+
+      <!-- Grupo 3: Clients + Contact -->
+      <div class="nav__group">
+        <ul class="nav__group-list">
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Datos de contacto al pie del menú.
+         Único enlace: el email. El resto en texto plano.
+      UPDATE -  Se quita de aqui los datos de contacto, ahora contact us tiene su sección -->
+
+    <!-- <div class="nav__contact">
+      <span>Contact Us:</span>
+      <span class="footer__division"></span>
+      <a href="mailto:[EMAIL]">blummflowerst@gmail.com</a>      
+      <span>11 5497 0878</span>
+      <a href="https://www.blumm.com.ar/">www.blumm.com.ar</a>      
+
+      <span class="footer__division"></span>
+
+      <span class="footer__title">Instagram:</span>
+      <span>
+      <a href="https://www.instagram.com/blumm_studio/">@blumm_studio</a>
+      <a href="https://www.instagram.com/blummflowerco/">@blummflowerco</a>
+      </span>
+
+    </div>
+    -->
+
+    <div class="nav__legal">
+      <span>©2026 Blumm Studio. Todos los derechos reservados.</span>
+    </div>
+    
+  </nav>
+
+
+  <!-- =========================================================
+       HEADER MOBILE
+       ========================================================= -->
+  <header class="mob-header">
+    <div class="mob-header__brand">
+      <a href="index.html" aria-label="Inicio — Blumm">
+        <img class="logo logo--white" src="./img/imagotipo_white.png" alt="Blumm Studio">
+        <img class="logo logo--black" src="./img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
+    </div>
+    <button class="mob-header__toggle" id="mobToggle" aria-label="Abrir menú">Menu</button>
+  </header>
+
+  <!-- =========================================================
+       PANEL MOBILE A PANTALLA COMPLETA
+       ========================================================= -->
+  <aside class="mob-panel" id="mobPanel">
+    <div class="mob-panel__header">
+      <a href="index.html" aria-label="Inicio - Blumm Studio">
+        <img class="logo logo--white" src="./img/imagotipo_white.png" alt="Blumm Studio">
+        <img class="logo logo--black" src="./img/imagotipo_black.png" alt="Blumm Studio">
+      </a>
+      <button class="mob-panel__close" id="mobClose" aria-label="Cerrar menú">Cerrar</button>
+    </div>
+
+    <nav class="mob-panel__nav">
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="education.html">Education &amp; Experience</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <div class="mob-group__title">Our Work</div>
+        <ul class="mob-group__sublist">
+          <li><a href="work.html#project-1">[Proyecto 1]</a></li>
+          <li><a href="work.html#project-2">[Proyecto 2]</a></li>
+          <li><a href="work.html#project-3">[Proyecto 3]</a></li>
+          <li><a href="work.html#project-4">[Proyecto 4]</a></li>
+          <li><a href="work.html#project-5">[Proyecto 5]</a></li>
+        </ul>
+      </div>
+
+      <div class="mob-group">
+        <ul class="mob-group__list">
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="mob-panel__contact">
+      <a href="mailto:[EMAIL]">blummflowerst@gmail.com</a>
+      <span>-------</span>
+      
+      <span> - Tel:</span>
+      <span>11 5497 0878</span>
+
+      <span>-------</span>
+
+      <span> - instagram:</span>
+      <span>@blumm_studio</span>
+      <span>@blummflowerco</span>
+      <span>@casacavia</span>
+
+      <span>-------</span>   
+
+      <span> - Personal:</span>
+      <span>@cgassiebayle</span>
+      <span>@mgassiebayle</span>
+    </div>
+  </aside>
+
+  <!-- =========================================================
+       CONTENIDO — ABOUT
+       Reemplazar [TÍTULO] y los párrafos con el texto real.
+       ========================================================= -->
+  <main class="article fade-in">
+    <div class="article__label"></div>
+    <hr class="article__rule">
+
+    <h1 class="article__title">Contact Blumm Studio</h1>
+
+    <div>
+      <span class="footer__division"></span>
+      <a href="mailto:[EMAIL]">blummflowerst@gmail.com</a>      
+      <p>11 5497 0878</p>
+      <a href="https://www.blumm.com.ar/">www.blumm.com.ar</a>      
+
+      <div class="footer__division"></div>
+
+      <p class="igTitle">Instagram:</p>
+      
+      <div>
+        <a href="https://www.instagram.com/blumm_studio/">@blumm_studio</a>
+      </div>
+      
+      <div>
+        <a href="https://www.instagram.com/blummflowerco/">@blummflowerco</a>
+      </div>
+
+    </div>
+    
+  </main>
+
+  <script defer src="./js/main.js"></script>
+</body>
+</html>
